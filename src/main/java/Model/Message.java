@@ -16,6 +16,7 @@ public class Message {
     private int messageLenght;
     private String controlInformation;
     private String messageContent;
+    private int priority;
 
     public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent) {
         this.type = type;
@@ -23,6 +24,16 @@ public class Message {
         this.sourceID = sourceID;
         this.controlInformation = controlInformation;
         this.messageContent = messageContent;
+        this.priority = 0;
+    }
+    
+    public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent, int priority) {
+        this.type = type;
+        this.destinationID = destinationID;
+        this.sourceID = sourceID;
+        this.controlInformation = controlInformation;
+        this.messageContent = messageContent;
+        this.priority = priority;
     }
 
     public String getDestinationID() {
@@ -36,7 +47,10 @@ public class Message {
     public String getMessageContent() {
         return messageContent;
     }
-    
+
+    public int getPriority() {
+        return priority;
+    }
     
     
 }
