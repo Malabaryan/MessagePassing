@@ -1,5 +1,6 @@
 
 import Model.Message;
+import Model.Process;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,9 +24,9 @@ public class Main {
         Controller.ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_Blocking;
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
-        Model.Process nuevo1 = new Model.Process();
-        Model.Process nuevo2 = new Model.Process();
-        Model.Process nuevo3 = new Model.Process();
+        Process nuevo1 = new Process();
+        Process nuevo2 = new Process();
+        Process nuevo3 = new Process();
         Message mensaje = new Message();
         nuevo1.parametros = parametros;
         nuevo2.parametros = parametros;

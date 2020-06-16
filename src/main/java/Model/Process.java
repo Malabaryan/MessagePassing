@@ -41,6 +41,8 @@ public class Process {
                 bloqueo = false;
                 break;
         }
+    }
+    
     public Message receiveMessage(Message pMessage){
         return null;
     }
@@ -79,6 +81,8 @@ public class Process {
     public boolean getBloqueo() {
         return bloqueo;
     }
+    
+
     
     public void receiveMessage(Message pMessage,Process pProceso){
         boolean pbloqueo_Send = pProceso.getBloqueo();
