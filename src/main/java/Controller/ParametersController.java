@@ -10,13 +10,22 @@ package Controller;
  * @author Bryan Hernandez
  */
 public class ParametersController {
+    private static ParametersController parametersController;
     private static ParameterState syncronization_Send;
     private static ParameterState syncronization_Receive;
     private static ParameterState addressing;
     private static ParameterState format;
     private static ParameterState queueStrategy;
-    
-    
+
+    private ParametersController() {
+    }
+
+    public static ParametersController getInstance() {
+        if(parametersController == null){
+            parametersController = new ParametersController(); 
+        }
+        return parametersController;
+    }
  
     public ParameterState getSyncronization_Send() {
         if (syncronization_Send == null)
@@ -28,12 +37,6 @@ public class ParametersController {
         if (syncronization_Receive == null)
             syncronization_Receive = ParameterState.Sync_Receive_Blocking;
         return syncronization_Receive;
-
-
-    public static ParameterState getSyncronization() {
-        if (syncronization == null)
-            syncronization = ParameterState.Sync_Send_Blocking;
-        return syncronization;
     }
 
     public static ParameterState getAddressing() {

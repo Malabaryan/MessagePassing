@@ -41,8 +41,6 @@ public class Process {
                 bloqueo = false;
                 break;
         }
-    public Message receiveMessage(Message pMessage){
-        return null;
     }
     
     public void Syncronizacion_Receive(){
