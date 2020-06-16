@@ -17,6 +17,10 @@ public class Message {
     private String controlInformation;
     private String messageContent;
 
+    public Message() {
+    }
+    
+    
     public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent) {
         this.type = type;
         this.destinationID = destinationID;
