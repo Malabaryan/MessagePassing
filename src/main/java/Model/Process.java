@@ -87,10 +87,6 @@ public class Process {
    
     }
     
-    /*public void sendMessage(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent){
-        sendMessage(new Message(type,destinationID,sourceID,controlInformation,messageContent));
-    }*/
-    
     public void sendMessage(Message pMessage,Process pProceso){
         Syncronizacion_Send();
         pProceso.Syncronizacion_Receive();
