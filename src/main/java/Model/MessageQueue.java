@@ -71,4 +71,6 @@ public class MessageQueue {
     public void addMessage(Message message){
         messages.add(message);
     }
+    
+    
 }

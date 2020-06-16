@@ -13,12 +13,13 @@ public class Process {
     
     private Message currentMessage;
     private Mailbox mailboxAssociated;
+    private String ID;
 
-    public Process() {
-        mailboxAssociated = new Mailbox();
+    public Process(Mailbox pMailbox) {
+        mailboxAssociated = pMailbox;
     }
     
-    public Message receiveMessage(){
+    public Message receiveMessage(Message pMessage){
         return null;
     }
     
@@ -28,6 +29,10 @@ public class Process {
     
     public void sendMessage(Message pMessage){
         
+    }
+
+    public String getID() {
+        return ID;
     }
     
     
