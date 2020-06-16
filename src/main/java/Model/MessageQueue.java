@@ -46,8 +46,26 @@ public class MessageQueue {
         return myMessage;
     }
     
-    public Message getNextMessage(){
-        return messages.poll();
+    Message getNextMessage(){
+        Message myMessage = null;
+        
+        for(Message message: messages){
+            if(ParametersController.getQueueStrategy() == ParameterState.Queue_FIFO){
+                myMessage = message;
+                break;
+            } else
+            if(myMessage == null){
+                myMessage = message;
+            } else
+            if(myMessage.getPriority() < message.getPriority()){
+                myMessage = message;
+            }
+        }
+        
+        if(myMessage != null){
+            messages.remove(myMessage);
+        }
+        return myMessage;
     }
     
     public void addMessage(Message message){
