@@ -17,9 +17,10 @@ public class Process {
     private Mailbox mailboxAssociated;
     public  boolean bloqueo;
     public  ParametersController parametros;
+    private String ID;
 
-    public Process() {
-        mailboxAssociated = new Mailbox();
+    public Process(Mailbox pMailbox) {
+        mailboxAssociated = pMailbox;
     }
     
     public void Syncronizacion_Send(){
@@ -40,6 +41,8 @@ public class Process {
                 bloqueo = false;
                 break;
         }
+    public Message receiveMessage(Message pMessage){
+        return null;
     }
     
     public void Syncronizacion_Receive(){
@@ -67,6 +70,10 @@ public class Process {
 
     public void setBloqueo(boolean bloqueo) {
         this.bloqueo = bloqueo;
+    }
+
+    public String getID() {
+        return ID;
     }
     
     public boolean getBloqueo() {

@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Controller.MainController;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,25 +13,23 @@ import java.util.Queue;
  *
  * @author Bryan Hernandez
  */
-class Mailbox {
+public class Mailbox {
     
-    private Queue<Message> messages;
+    private MessageQueue messages;
+    private MainController controller;
 
-    public Mailbox() {
-        messages = new LinkedList<Message>();
-    }
-    
-    public Message getMyNextMessage(String pDestinationID){
-        for(Message message: messages){
-            if(message.getDestinationID() == pDestinationID){
-                return message;
-            }
-        }
-        return null;
+    public Mailbox(MainController pController) {
+        messages = new MessageQueue();
+        this.controller = pController;
     }
     
     public void addMessage(Message pMessage){
-        messages.add(pMessage);
+        messages.addMessage(pMessage);
+    }
+    
+    public void sendMessage(){
+        Message msg = this.messages.getNextMessage();
+        this.controller.getProcess(msg.getDestinationID()).receiveMessage(msg);
     }
     
 }
