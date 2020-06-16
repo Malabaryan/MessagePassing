@@ -46,7 +46,13 @@ public class MessageQueue {
         return myMessage;
     }
     
+    public Message getNextMessage(){
+        return messages.poll();
+    }
+    
     public void addMessage(Message message){
         messages.add(message);
     }
+    
+    
 }
