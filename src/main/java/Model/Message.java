@@ -5,6 +5,8 @@
  */
 package Model;
 
+import Controller.ParametersController;
+
 /**
  *
  * @author Bryan Hernandez
@@ -29,6 +31,7 @@ public class Message {
         this.controlInformation = controlInformation;
         this.messageContent = messageContent;
         this.priority = 0;
+        checkMessageLenght();
     }
     
     public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent, int priority) {
@@ -38,6 +41,15 @@ public class Message {
         this.controlInformation = controlInformation;
         this.messageContent = messageContent;
         this.priority = priority;
+        checkMessageLenght();
+    }
+    
+    private void checkMessageLenght(){
+        if(ParametersController.getMessageLength() > 0){
+            messageContent = messageContent.substring(0,  
+                    Math.min(messageContent.length(), 
+                            ParametersController.getMessageLength()));
+        }
     }
 
     public String getDestinationID() {
