@@ -15,7 +15,7 @@ import java.util.Queue;
  */
 public class Mailbox {
     
-    private MessageQueue messages;
+    public MessageQueue messages;
     private MainController controller;
 
     public Mailbox(MainController pController) {
