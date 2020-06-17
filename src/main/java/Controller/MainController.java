@@ -55,15 +55,19 @@ public class MainController {
         processes.add(pProcess);
     }
     
-    public String[] getProcessesString() {
-        String [] processList = new String [processes.size()];
-        int cont = 0;
+    public ArrayList<String> getProcessesStringArrayList() {
+        ArrayList<String> processList = new ArrayList();// [processes.size()];
         for(Process process: processes){
-            processList[cont] = process.getID();
-            cont++;
+            processList.add(process.getID());
         }
         return processList;
     }
+    
+    public String[] getProcessesString() {
+        String[] processList = getProcessesStringArrayList().toArray(new String[0]);
+        return processList;
+    }
+    
     
     public Process getProcess(String ID){
         for(Process process: processes){
@@ -74,7 +78,7 @@ public class MainController {
         return null;
     }
 
-    void executeCommand(String text) {
+    public void executeCommand(String text) {
         String[] commands = text.split("\n");
         
         for(String str : commands) {
