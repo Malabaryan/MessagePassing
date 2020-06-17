@@ -44,6 +44,10 @@ public class MainController {
         return processes;
     }
     
+    public void AddProcess(Process pProcess){
+        processes.add(pProcess);
+    }
+    
     public String[] getProcessesString() {
         String [] processList = new String [processes.size()];
         int cont = 0;

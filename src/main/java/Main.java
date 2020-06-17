@@ -37,7 +37,9 @@ public class Main {
         Process nuevo1 = new Model.Process("1",maincontroller.getMailbox());
         Process nuevo2 = new Model.Process("2",maincontroller.getMailbox());
         Process nuevo3 = new Model.Process("3",maincontroller.getMailbox());
-        
+        maincontroller.AddProcess(nuevo1);
+        maincontroller.AddProcess(nuevo2);
+        maincontroller.AddProcess(nuevo3);
         
         System.out.print(ParametersController.getSyncronization_Send().toString());
         Message mensaje = new Message();
