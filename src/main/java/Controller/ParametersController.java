@@ -27,13 +27,13 @@ public class ParametersController {
         return parametersController;
     }
  
-    public ParameterState getSyncronization_Send() {
+    public static ParameterState getSyncronization_Send() {
         if (syncronization_Send == null)
             syncronization_Send = ParameterState.Sync_Send_Blocking;
         return syncronization_Send;
     }
     
-    public ParameterState getSyncronization_Receive() {
+    public static ParameterState getSyncronization_Receive() {
         if (syncronization_Receive == null)
             syncronization_Receive = ParameterState.Sync_Receive_Blocking;
         return syncronization_Receive;

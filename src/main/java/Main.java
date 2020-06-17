@@ -23,7 +23,7 @@ public class Main {
         // TODO code application logic here
         ParametersController parametros = ParametersController.getInstance();
         Controller.ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
-        Controller.ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_Blocking;
+        Controller.ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
         MainController maincontroller = new MainController();
@@ -31,13 +31,10 @@ public class Main {
         Process nuevo2 = new Model.Process(maincontroller.getMailbox());
         Process nuevo3 = new Model.Process(maincontroller.getMailbox());
         Message mensaje = new Message();
-        nuevo1.parametros = parametros;
-        nuevo2.parametros = parametros;
-        nuevo3.parametros = parametros;
         nuevo1.sendMessage(mensaje, nuevo2);
         for(int i = 0; i<=50; i++){
             nuevo3.sendMessage(mensaje, nuevo2);
-            System.out.print(i);
+            System.out.print(i+"\n");
         }
         nuevo2.receiveMessage(mensaje, nuevo1);
         
