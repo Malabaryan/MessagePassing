@@ -23,6 +23,10 @@ public class MainController {
         processes = new ArrayList();
         mailbox = new Mailbox(this);
     }
+    
+    public Mailbox getMailbox(){
+        return mailbox;
+    }
 
     public ArrayList getProcesses() {
         return processes;

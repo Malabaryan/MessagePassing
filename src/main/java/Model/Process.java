@@ -96,4 +96,8 @@ public class Process {
         Syncronizacion_Send();
         pProceso.Syncronizacion_Receive();
     }
+
+    void receiveMessage(Message msg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
