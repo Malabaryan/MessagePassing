@@ -17,6 +17,7 @@ public class ParametersController {
     private static ParameterState format;
     private static ParameterState queueStrategy;
     
+    private static int queueSize = -1;
     private static int messageLength = -1;
 
     private ParametersController() {
@@ -63,6 +64,10 @@ public class ParametersController {
     public static int getMessageLength(){
         return messageLength;
     }
+    
+    public static int getQueueSize(){
+        return queueSize;
+    }
 
     public static void setSyncronization_Send(ParameterState syncronization_Send) {
         ParametersController.syncronization_Send = syncronization_Send;
@@ -89,5 +94,7 @@ public class ParametersController {
         ParametersController.messageLength = length;
     }
     
-    
+    public static void setQueueSize(int size){
+        ParametersController.queueSize = size;
+    }
 }

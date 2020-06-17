@@ -69,7 +69,11 @@ public class MessageQueue {
     }
     
     public void addMessage(Message message){
-        messages.add(message);
+        if (messages.size() < ParametersController.getQueueSize()){
+            messages.add(message);
+        } else {
+            //LOG "QUEUE FULL"
+        }
     }
     
     
