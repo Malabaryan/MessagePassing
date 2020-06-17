@@ -25,7 +25,7 @@ public class Process {
     }
     
     public void Syncronizacion_Send(){
-        ParameterState estado = ParametersController.getSyncronization_Send();
+        ParameterState estado = ParametersController.getInstance().getSyncronization_Send();
         if(null == estado){
             bloqueo = false;
         }
@@ -46,7 +46,7 @@ public class Process {
     
     
     public void Syncronizacion_Receive(){
-        ParameterState estado = ParametersController.getSyncronization_Receive();
+        ParameterState estado = ParametersController.getInstance().getSyncronization_Receive();
         if(null == estado){
             bloqueo = false;
         }
@@ -86,7 +86,7 @@ public class Process {
         boolean pbloqueo_Send = process_send.getBloqueo();
         boolean pbloqueo_Receive = getBloqueo();
         if(pbloqueo_Send == true){
-            if(ParametersController.getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
+            if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                 process_send.desbloquear_Test_Arrival();
                 System.out.print("Desbloqueado");
             }
@@ -119,7 +119,7 @@ public class Process {
             Process process_send = MainController.getInstance().getProcess(currentMessage.getSourceID());
             boolean pbloqueo_Send = process_send.getBloqueo();
             if(pbloqueo_Send == true){
-                if(ParametersController.getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
+                if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                     desbloquear_Test_Arrival();
                     System.out.print("Desbloqueado");
                 }
@@ -141,11 +141,11 @@ public class Process {
     }
     
     public void sendMessage(Message pMessage,String ID){
-        ParameterState direccionamiento = ParametersController.getAddressing_Send();
+        ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Send();
         if(direccionamiento == ParameterState.Addr_Direct_Send){
             sendMessage_Direct(pMessage,ID);
         }
-        else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
+        else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
             if(mailboxAssociated.findList_Send(this.ID)==true){
                 sendMessage_Indirect(pMessage); 
             }
@@ -153,10 +153,13 @@ public class Process {
                 System.out.print("Este Proceso no pertenece a esta mailBox");
             }
         }
+        else{
+            System.out.print(ParametersController.getInstance().getAddressing_Send().toString());
+        }
     }
     
     public Process receiveMessage(Message pMessage,String ID){
-        ParameterState direccionamiento = ParametersController.getAddressing_Receive();
+        ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
         if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
             receiveMessage_DirectImplicit(pMessage,ID);
             return null;
@@ -165,7 +168,7 @@ public class Process {
             receiveMessage_DirectImplicit(pMessage,ID);
             return MainController.getInstance().getProcess(ID);
         }
-        else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
+        else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
             if(mailboxAssociated.findList_Receive(ID)==true){
                 receiveMessage_Indirect(pMessage); 
             }
