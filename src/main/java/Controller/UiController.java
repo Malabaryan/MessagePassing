@@ -6,8 +6,10 @@
 package Controller;
 
 import Model.Logger;
+import Model.Log;
 import UI.Setup;
 import UI.Window;
+import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 /**
@@ -56,17 +58,29 @@ public class UiController {
         this.controller.sendCommand(text);
     }
 
-    public void updateTextField(JTextArea txt_selectedprocesses, String hola) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updateTextField(JTextArea txt_selectedprocesses, String ID) {
+        txt_selectedprocesses.setText(this.getLogOf(ID).toString());
     }
 
     
-    public String getLogOf(String processID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<String> getLogOf(String processID) {
+        ArrayList<String> logs = new ArrayList();
+        for(Log log: this.logger.getLogger()){
+            if(log.getMsg().getDestinationID().equals(processID)){
+                if(log.getMsg().getDestinationID()  == null || log.getMsg().getSourceID()  == null){
+                    logs.add(log.getMsg().getMessageContent());
+                }
+                else{
+                    logs.add(log.getMsg().getMessageContent() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID());
+                }
+            }
+        }
+        return logs;
     }
 
     public void updateAll(JTextArea txt_allprocesses, JTextArea txt_process1, JTextArea txt_process2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        txt_allprocesses.setText(logger.getLogger().toString());
+        
     }
 
     public void startSimulation(Object value, Object value0, Object value1) {

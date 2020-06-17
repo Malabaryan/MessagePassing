@@ -340,7 +340,7 @@ public class Window extends javax.swing.JFrame {
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
         String processSelected = this.combo_processes.getItemAt(combo_processes.getSelectedIndex());
-        this.controller.updateTextField(this.txt_selectedprocesses, this.controller.getLogOf(processSelected));
+        this.controller.updateTextField(this.txt_selectedprocesses, this.controller.getLogOf(processSelected).toString());
         
         this.controller.updateAll(this.txt_allprocesses,this.txt_process1,this.txt_process2);
     }//GEN-LAST:event_btn_updateActionPerformed

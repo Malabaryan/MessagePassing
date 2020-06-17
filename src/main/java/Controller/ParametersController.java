@@ -77,32 +77,32 @@ public class ParametersController {
         return queueSize;
     }
 
-    public void setSyncronization_Send(ParameterState syncronization_Send) {
+    public static void setSyncronization_Send(ParameterState syncronization_Send) {
         ParametersController.syncronization_Send = syncronization_Send;
     }
 
-    public void setSyncronization_Receive(ParameterState syncronization_Receive) {
+    public static void setSyncronization_Receive(ParameterState syncronization_Receive) {
         ParametersController.syncronization_Receive = syncronization_Receive;
     }
     
 
-    public void setAddressing_Send(ParameterState addressing) {
+    public static void setAddressing_Send(ParameterState addressing) {
         ParametersController.addressing_Send = addressing;
     }
     
-    public void setAddressing_Receive(ParameterState addressing) {
+    public static void setAddressing_Receive(ParameterState addressing) {
         ParametersController.addressing_Receive = addressing;
     }
 
-    public void setFormat(ParameterState format) {
+    public static void setFormat(ParameterState format) {
         ParametersController.format = format;
     }
 
-    public void setQueueStrategy(ParameterState queueStrategy) {
+    public static void setQueueStrategy(ParameterState queueStrategy) {
         ParametersController.queueStrategy = queueStrategy;
     }
     
-    public void setMessageLength(int length){
+    public static void setMessageLength(int length){
         ParametersController.messageLength = length;
     }
     

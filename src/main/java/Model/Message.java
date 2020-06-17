@@ -47,9 +47,6 @@ public class Message {
         checkMessageLenght();
     }
 
-    public Message(String messageContent) {
-        this.messageContent = messageContent;
-    }
     
     
     private void checkMessageLenght(){
