@@ -23,6 +23,9 @@ public class Message {
     public Message() {
     }
     
+    public Message(String messageContent) {
+        this.messageContent = messageContent;
+    }
     
     public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent) {
         this.type = type;
@@ -43,6 +46,8 @@ public class Message {
         this.priority = priority;
         checkMessageLenght();
     }
+
+    
     
     private void checkMessageLenght(){
         if(ParametersController.getMessageLength() > 0){
@@ -67,7 +72,8 @@ public class Message {
     public int getPriority() {
         return priority;
     }
-    
-    
-    
+
+    public void setDestinationID(String destinationID) {
+        this.destinationID = destinationID;
+    }
 }

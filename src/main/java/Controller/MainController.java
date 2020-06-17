@@ -26,6 +26,7 @@ public class MainController {
         processes = new ArrayList();
         mailbox = new Mailbox(this);
         uiController = new UiController(this);
+        ParametersController.getInstance();
     }
     
     public static MainController getInstance(){
@@ -42,6 +43,16 @@ public class MainController {
 
     public ArrayList getProcesses() {
         return processes;
+    }
+
+    public UiController getUiController() {
+        return uiController;
+    }
+    
+    
+    
+    public void AddProcess(Process pProcess){
+        processes.add(pProcess);
     }
     
     public String[] getProcessesString() {
@@ -81,6 +92,8 @@ public class MainController {
             
         }
     }
+    
+    
     
     
 }

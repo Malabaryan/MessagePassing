@@ -7,6 +7,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
@@ -15,6 +16,7 @@ import java.util.Date;
 public class Logger {
     
     private ArrayList<Log> logger;  
+    private HashMap<String,Log> logHash;
 
     public Logger() {
         logger = new ArrayList();
@@ -22,12 +24,21 @@ public class Logger {
     
     public void addLog(Log log){
         logger.add(log);
+        logHash.put(log.getMsg().getSourceID(), log);
     }
     
     public void addLog(Message msg, Date date){
         logger.add(new Log(msg,date));
     }
 
+    public void addLog(String msg){
+        logger.add(new Log(new Message(msg), new Date()));
+    }
+
+    public ArrayList<Log> getLogger() {
+        return logger;
+    }
+    
     
     
 }

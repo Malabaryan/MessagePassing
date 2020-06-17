@@ -11,12 +11,15 @@ package Controller;
  */
 public class ParametersController {
     private static ParametersController parametersController;
+    
     private static ParameterState syncronization_Send;
     private static ParameterState syncronization_Receive;
-    private static ParameterState addressing;
+    private static ParameterState addressing_Send;
+    private static ParameterState addressing_Receive;
     private static ParameterState format;
     private static ParameterState queueStrategy;
     
+    private static int queueSize = -1;
     private static int messageLength = -1;
 
     private ParametersController() {
@@ -42,10 +45,16 @@ public class ParametersController {
     }
 
 
-    public static ParameterState getAddressing() {
-        if (addressing == null)
-            addressing = ParameterState.Addr_Direct_Send;
-        return addressing;
+    public static ParameterState getAddressing_Send() {
+        if (addressing_Send == null)
+            addressing_Send = ParameterState.Addr_Direct_Send;
+        return addressing_Send;
+    }
+    
+    public static ParameterState getAddressing_Receive() {
+        if (addressing_Receive == null)
+            addressing_Receive = ParameterState.Addr_Indirect_Static;
+        return addressing_Receive;
     }
 
     public static ParameterState getFormat() {
@@ -63,6 +72,10 @@ public class ParametersController {
     public static int getMessageLength(){
         return messageLength;
     }
+    
+    public static int getQueueSize(){
+        return queueSize;
+    }
 
     public static void setSyncronization_Send(ParameterState syncronization_Send) {
         ParametersController.syncronization_Send = syncronization_Send;
@@ -73,8 +86,12 @@ public class ParametersController {
     }
     
 
-    public static void setAddressing(ParameterState addressing) {
-        ParametersController.addressing = addressing;
+    public static void setAddressing_Send(ParameterState addressing) {
+        ParametersController.addressing_Send = addressing;
+    }
+    
+    public static void setAddressing_Receive(ParameterState addressing) {
+        ParametersController.addressing_Receive = addressing;
     }
 
     public static void setFormat(ParameterState format) {
@@ -89,5 +106,7 @@ public class ParametersController {
         ParametersController.messageLength = length;
     }
     
-    
+    public static void setQueueSize(int size){
+        ParametersController.queueSize = size;
+    }
 }
