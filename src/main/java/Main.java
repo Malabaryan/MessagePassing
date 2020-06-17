@@ -26,10 +26,16 @@ public class Main {
         Controller.ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
+
+        //Process nuevo1 = new Process();
+        //Process nuevo2 = new Process();
+        //Process nuevo3 = new Process();
+
         MainController maincontroller = new MainController();
         Process nuevo1 = new Model.Process(maincontroller.getMailbox());
         Process nuevo2 = new Model.Process(maincontroller.getMailbox());
         Process nuevo3 = new Model.Process(maincontroller.getMailbox());
+
         Message mensaje = new Message();
         nuevo1.sendMessage(mensaje, nuevo2);
         for(int i = 0; i<=50; i++){

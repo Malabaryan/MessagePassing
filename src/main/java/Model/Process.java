@@ -43,6 +43,7 @@ public class Process {
         }
     }
     
+    
     public void Syncronizacion_Receive(){
         ParameterState estado = ParametersController.getSyncronization_Receive();
         if(null == estado){
@@ -77,6 +78,8 @@ public class Process {
     public boolean getBloqueo() {
         return bloqueo;
     }
+    
+
     
     public void receiveMessage(Message pMessage,Process pProceso){
         boolean pbloqueo_Send = pProceso.getBloqueo();

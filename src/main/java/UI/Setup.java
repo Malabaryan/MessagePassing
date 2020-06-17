@@ -5,16 +5,14 @@
  */
 package UI;
 
-/**
- *
- * @author Kenneth
- */
-public class Setup extends javax.swing.JFrame {
+import Controller.UiController;
 
-    /**
-     * Creates new form Setup
-     */
-    public Setup() {
+public class Setup extends javax.swing.JFrame {
+    
+    private UiController controller;
+    
+    public Setup(UiController pController) {
+        controller = pController;
         initComponents();
     }
 
@@ -27,57 +25,369 @@ public class Setup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        radiogroup_syncSend = new javax.swing.ButtonGroup();
+        radiogroup_syncreceive = new javax.swing.ButtonGroup();
+        radiogroup_addressing = new javax.swing.ButtonGroup();
+        radiogroup_lenght = new javax.swing.ButtonGroup();
+        radiogroup_queue = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioButton9 = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jRadioButton10 = new javax.swing.JRadioButton();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel27 = new javax.swing.JLabel();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(720, 720));
+        setPreferredSize(new java.awt.Dimension(720, 720));
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Parameters");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 140, 30);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Syncronization Receive");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 160, 180, 20);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Non Blocking");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(120, 120, 120, 20);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Blocking");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(120, 100, 110, 20);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Proof of Arrival");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(120, 230, 150, 20);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Blocking");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(120, 190, 140, 20);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Non Blocking");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(120, 210, 140, 20);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Addressing ");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(80, 290, 180, 20);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Implicit");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(200, 380, 70, 20);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Direct");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(120, 320, 180, 20);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Receive");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(160, 340, 180, 20);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Explicit");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(200, 360, 70, 20);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Indirect");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(110, 400, 180, 20);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("Static");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(150, 420, 120, 20);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setText("Dynamic");
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(150, 440, 110, 20);
+
+        radiogroup_syncSend.add(jRadioButton1);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton1);
+        jRadioButton1.setBounds(280, 100, 21, 21);
+
+        radiogroup_syncreceive.add(jRadioButton2);
+        getContentPane().add(jRadioButton2);
+        jRadioButton2.setBounds(280, 230, 21, 21);
+
+        radiogroup_syncreceive.add(jRadioButton3);
+        getContentPane().add(jRadioButton3);
+        jRadioButton3.setBounds(280, 210, 21, 21);
+
+        radiogroup_syncreceive.add(jRadioButton4);
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton4);
+        jRadioButton4.setBounds(280, 190, 21, 21);
+
+        radiogroup_syncSend.add(jRadioButton5);
+        getContentPane().add(jRadioButton5);
+        jRadioButton5.setBounds(280, 120, 21, 21);
+
+        radiogroup_addressing.add(jRadioButton6);
+        getContentPane().add(jRadioButton6);
+        jRadioButton6.setBounds(270, 380, 21, 21);
+
+        radiogroup_addressing.add(jRadioButton7);
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton7);
+        jRadioButton7.setBounds(270, 360, 21, 21);
+
+        radiogroup_addressing.add(jRadioButton8);
+        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton8);
+        jRadioButton8.setBounds(270, 420, 21, 21);
+
+        radiogroup_addressing.add(jRadioButton9);
+        getContentPane().add(jRadioButton9);
+        jRadioButton9.setBounds(270, 440, 21, 21);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("No. Processes");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(430, 70, 180, 20);
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setText("Format");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(110, 510, 180, 20);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setText("Variable");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(180, 590, 70, 20);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel21.setText("Lenght");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(150, 540, 180, 20);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel23.setText("Fixed");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(180, 570, 70, 20);
+
+        radiogroup_lenght.add(jRadioButton10);
+        getContentPane().add(jRadioButton10);
+        jRadioButton10.setBounds(250, 590, 21, 21);
+
+        radiogroup_lenght.add(jRadioButton11);
+        jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton11);
+        jRadioButton11.setBounds(250, 570, 21, 21);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setText("Queue");
+        getContentPane().add(jLabel22);
+        jLabel22.setBounds(110, 630, 180, 20);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel24.setText("FIFO");
+        getContentPane().add(jLabel24);
+        jLabel24.setBounds(150, 650, 120, 20);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setText("Priority");
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(150, 670, 110, 20);
+
+        radiogroup_queue.add(jRadioButton12);
+        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton12ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton12);
+        jRadioButton12.setBounds(270, 650, 21, 21);
+
+        radiogroup_queue.add(jRadioButton13);
+        getContentPane().add(jRadioButton13);
+        jRadioButton13.setBounds(270, 670, 21, 21);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setText("Start Simulation");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(540, 662, 160, 31);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(390, 80, 20, 620);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel26.setText("Syncronization Send");
+        getContentPane().add(jLabel26);
+        jLabel26.setBounds(80, 70, 180, 20);
+        getContentPane().add(jSpinner1);
+        jSpinner1.setBounds(580, 70, 80, 20);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel27.setText("Max Queue Lenght");
+        getContentPane().add(jLabel27);
+        jLabel27.setBounds(430, 110, 180, 20);
+        getContentPane().add(jSpinner2);
+        jSpinner2.setBounds(280, 570, 80, 20);
+        getContentPane().add(jSpinner3);
+        jSpinner3.setBounds(580, 110, 80, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Setup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Setup().setVisible(true);
-            }
-        });
-    }
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton7ActionPerformed
+
+    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton8ActionPerformed
+
+    private void jRadioButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton11ActionPerformed
+
+    private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton12ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // this.radiogroup_addressing.getSelection().
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton10;
+    private javax.swing.JRadioButton jRadioButton11;
+    private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.ButtonGroup radiogroup_addressing;
+    private javax.swing.ButtonGroup radiogroup_lenght;
+    private javax.swing.ButtonGroup radiogroup_queue;
+    private javax.swing.ButtonGroup radiogroup_syncSend;
+    private javax.swing.ButtonGroup radiogroup_syncreceive;
     // End of variables declaration//GEN-END:variables
 }

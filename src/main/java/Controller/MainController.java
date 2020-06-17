@@ -15,13 +15,25 @@ import Model.Process;
  */
 public class MainController {
     
+    private static MainController instance;
+    
     private ArrayList<Process> processes;
     private Mailbox mailbox;
+    private UiController uiController;
 
-    public MainController() {
+    private MainController() {
         
         processes = new ArrayList();
         mailbox = new Mailbox(this);
+        uiController = new UiController(this);
+    }
+    
+    public MainController getinstance(){
+        if(instance == null){
+            instance = new MainController();
+        }
+        
+        return instance;
     }
     
     public Mailbox getMailbox(){
@@ -32,6 +44,16 @@ public class MainController {
         return processes;
     }
     
+    public String[] getProcessesString() {
+        String [] processList = new String [processes.size()];
+        int cont = 0;
+        for(Process process: processes){
+            processList[cont] = process.getID();
+            cont++;
+        }
+        return processList;
+    }
+    
     public Process getProcess(String ID){
         for(Process process: processes){
             if(process.getID().equals(ID)){
@@ -40,5 +62,10 @@ public class MainController {
         }
         return null;
     }
+
+    void sendCommand(String text) {
+        
+    }
+    
     
 }

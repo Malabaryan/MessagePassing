@@ -41,6 +41,7 @@ public class ParametersController {
         return syncronization_Receive;
     }
 
+
     public static ParameterState getAddressing() {
         if (addressing == null)
             addressing = ParameterState.Addr_Direct_Send;
