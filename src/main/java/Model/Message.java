@@ -26,6 +26,12 @@ public class Message {
     public Message(String messageContent) {
         this.messageContent = messageContent;
     }
+
+    public Message(String destinationID, String sourceID, String messageContent) {
+        this.destinationID = destinationID;
+        this.sourceID = sourceID;
+        this.messageContent = messageContent;
+    }
     
     public Message(MessageType type, String destinationID, String sourceID, String controlInformation, String messageContent) {
         this.type = type;
