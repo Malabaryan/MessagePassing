@@ -28,6 +28,8 @@ public class Logger {
         logger.add(new Log(msg,date));
     }
 
-    
+    public void addLog(String msg, Date date){
+        logger.add(new Log(new Message(msg),date));
+    }
     
 }

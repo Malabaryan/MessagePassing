@@ -43,6 +43,12 @@ public class MainController {
     public ArrayList getProcesses() {
         return processes;
     }
+
+    public UiController getUiController() {
+        return uiController;
+    }
+    
+    
     
     public String[] getProcessesString() {
         String [] processList = new String [processes.size()];
