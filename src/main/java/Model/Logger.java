@@ -15,5 +15,19 @@ import java.util.Date;
 public class Logger {
     
     private ArrayList<Log> logger;  
+
+    public Logger() {
+        logger = new ArrayList();
+    }
+    
+    public void addLog(Log log){
+        logger.add(log);
+    }
+    
+    public void addLog(Message msg, Date date){
+        logger.add(new Log(msg,date));
+    }
+
+    
     
 }

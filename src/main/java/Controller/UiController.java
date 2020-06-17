@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.Logger;
 import UI.Setup;
 import UI.Window;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -17,6 +19,7 @@ public class UiController {
     private Setup setup;
     private Window mainWindow;
     private MainController controller;
+    private Logger logger;
 
     public UiController(MainController controller) {
         this.controller = controller;
@@ -38,6 +41,27 @@ public class UiController {
 
     public void showMainWindow() {
         this.mainWindow.setVisible(true);
+    }
+
+    public MainController getController() {
+        return controller;
+    }
+
+    public void sendCommand(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void updateTextField(JTextArea txt_selectedprocesses, String hola) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    public String getLogOf(String processID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void updateAll(JTextArea txt_allprocesses, JTextArea txt_process1, JTextArea txt_process2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

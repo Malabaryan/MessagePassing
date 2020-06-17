@@ -25,18 +25,89 @@ public class Setup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 856, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1080, 720));
+        setPreferredSize(new java.awt.Dimension(1080, 720));
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Parameters");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 140, 30);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Syncronization Receive");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 160, 180, 20);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Non Blocking");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(120, 120, 180, 20);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Syncronization Send");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(80, 70, 180, 20);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Blocking");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(120, 100, 180, 20);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Proof of Arrival");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(120, 230, 180, 20);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Blocking");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(120, 190, 180, 20);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Non Blocking");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(120, 210, 180, 20);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Addressing ");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(80, 280, 180, 20);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Implicit");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(200, 370, 180, 20);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Direct");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(120, 310, 180, 20);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Receive");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(160, 330, 180, 20);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Explicit");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(200, 350, 180, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -44,5 +115,18 @@ public class Setup extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,6 +28,16 @@ public class MainController {
         return processes;
     }
     
+    public String[] getProcessesString() {
+        String [] processList = new String [processes.size()];
+        int cont = 0;
+        for(Process process: processes){
+            processList[cont] = process.getID();
+            cont++;
+        }
+        return processList;
+    }
+    
     public Process getProcess(String ID){
         for(Process process: processes){
             if(process.getID().equals(ID)){
