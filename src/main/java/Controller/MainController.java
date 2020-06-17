@@ -28,7 +28,7 @@ public class MainController {
         uiController = new UiController(this);
     }
     
-    public MainController getinstance(){
+    public static MainController getInstance(){
         if(instance == null){
             instance = new MainController();
         }

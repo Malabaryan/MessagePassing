@@ -31,7 +31,7 @@ public class Main {
         //Process nuevo2 = new Process();
         //Process nuevo3 = new Process();
 
-        MainController maincontroller = new MainController();
+        MainController maincontroller = MainController.getInstance();
         Process nuevo1 = new Model.Process(maincontroller.getMailbox());
         Process nuevo2 = new Model.Process(maincontroller.getMailbox());
         Process nuevo3 = new Model.Process(maincontroller.getMailbox());
