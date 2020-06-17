@@ -25,8 +25,8 @@ public class Main {
         ParametersController parametros = ParametersController.getInstance();
         ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
         ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
-        ParameterState adressingReceive = Controller.ParameterState.Addr_Direct_Receive_Implicit;
-        ParameterState adressingSend = Controller.ParameterState.Addr_Direct_Send;
+        ParameterState adressingReceive = Controller.ParameterState.Addr_Indirect_Static;
+        ParameterState adressingSend = Controller.ParameterState.Addr_Indirect_Static;
         
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
@@ -37,7 +37,13 @@ public class Main {
         Process nuevo1 = new Model.Process("1",maincontroller.getMailbox());
         Process nuevo2 = new Model.Process("2",maincontroller.getMailbox());
         Process nuevo3 = new Model.Process("3",maincontroller.getMailbox());
+        maincontroller.AddProcess(nuevo1);
+        maincontroller.AddProcess(nuevo2);
+        maincontroller.AddProcess(nuevo3);
         
+        maincontroller.getMailbox().addListSend(nuevo1);
+        maincontroller.getMailbox().addListReceive(nuevo3);
+        maincontroller.getMailbox().addListReceive(nuevo2);
         
         System.out.print(ParametersController.getSyncronization_Send().toString());
         Message mensaje = new Message();
