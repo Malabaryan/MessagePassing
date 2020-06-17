@@ -7,6 +7,7 @@ package Controller;
 
 import java.util.ArrayList;
 import Model.Mailbox;
+import Model.Message;
 import Model.Process;
 
 /**
@@ -78,18 +79,28 @@ public class MainController {
         return null;
     }
 
+
     public void executeCommand(String text) {
         String[] commands = text.split("\n");
-        
         for(String str : commands) {
             String[] subString = str.split("[()]");
             String[] parameters = subString[1].split(",");
             if (subString[0].equals("create")){
                 //CREATE COMMAND
+                Process process = new Process(parameters[0],mailbox);
+                getMailbox().addListSend(process);
+                getMailbox().addListReceive(process);
+                AddProcess(process);
             } else if (subString[0].equals("send")){
-                //SEND COMMAND
+                //SEND COMMAND send(Destination, Source, Mesage)
+                Message mensaje = new Message(parameters[0], parameters[1], parameters[2]);
+                Process process = getProcess(parameters[0]);
+                process.sendMessage(mensaje,parameters[0]);
             } else if (subString[0].equals("recieve")){
-                //RECIEVE COMMAND
+                //RECIEVE COMMAND recieve(Destination, Source, Mesage)
+                Message mensaje = new Message(parameters[0], parameters[1], parameters[2]);
+                Process process = getProcess(parameters[0]);
+                process.receiveMessage(mensaje,parameters[1]);
             } else {
                 //INVALID COMMAND
             }
