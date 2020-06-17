@@ -213,31 +213,31 @@ public class Setup extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("No. Processes");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(430, 70, 180, 20);
+        jLabel15.setBounds(430, 160, 180, 20);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel19.setText("Format");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(110, 510, 180, 20);
+        jLabel19.setBounds(80, 510, 180, 20);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel20.setText("Variable");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(180, 590, 70, 20);
+        jLabel20.setBounds(150, 590, 70, 20);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel21.setText("Lenght");
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(150, 540, 180, 20);
+        jLabel21.setBounds(120, 540, 180, 20);
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel23.setText("Fixed");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(180, 570, 70, 20);
+        jLabel23.setBounds(150, 570, 70, 20);
 
         radiogroup_lenght.add(jRadioButton10);
         getContentPane().add(jRadioButton10);
-        jRadioButton10.setBounds(250, 590, 21, 21);
+        jRadioButton10.setBounds(220, 590, 21, 21);
 
         radiogroup_lenght.add(jRadioButton11);
         jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -246,22 +246,22 @@ public class Setup extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadioButton11);
-        jRadioButton11.setBounds(250, 570, 21, 21);
+        jRadioButton11.setBounds(220, 570, 21, 21);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel22.setText("Queue");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(110, 630, 180, 20);
+        jLabel22.setBounds(430, 70, 180, 20);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel24.setText("FIFO");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(150, 650, 120, 20);
+        jLabel24.setBounds(470, 90, 120, 20);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel25.setText("Priority");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(150, 670, 110, 20);
+        jLabel25.setBounds(470, 110, 110, 20);
 
         radiogroup_queue.add(jRadioButton12);
         jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -270,11 +270,11 @@ public class Setup extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadioButton12);
-        jRadioButton12.setBounds(270, 650, 21, 21);
+        jRadioButton12.setBounds(590, 90, 21, 21);
 
         radiogroup_queue.add(jRadioButton13);
         getContentPane().add(jRadioButton13);
-        jRadioButton13.setBounds(270, 670, 21, 21);
+        jRadioButton13.setBounds(590, 110, 21, 21);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Start Simulation");
@@ -284,27 +284,27 @@ public class Setup extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(540, 662, 160, 31);
+        jButton1.setBounds(520, 580, 160, 31);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(390, 80, 20, 620);
+        jSeparator1.setBounds(390, 80, 20, 530);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel26.setText("Syncronization Send");
         getContentPane().add(jLabel26);
         jLabel26.setBounds(80, 70, 180, 20);
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(580, 70, 80, 20);
+        jSpinner1.setBounds(580, 160, 80, 20);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel27.setText("Max Queue Lenght");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(430, 110, 180, 20);
+        jLabel27.setBounds(430, 200, 180, 20);
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(280, 570, 80, 20);
+        jSpinner2.setBounds(250, 570, 80, 20);
         getContentPane().add(jSpinner3);
-        jSpinner3.setBounds(580, 110, 80, 20);
+        jSpinner3.setBounds(580, 200, 80, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
