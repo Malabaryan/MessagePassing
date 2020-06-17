@@ -48,7 +48,7 @@ public class UiController {
     }
 
     public void sendCommand(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.controller.sendCommand(text);
     }
 
     public void updateTextField(JTextArea txt_selectedprocesses, String hola) {

@@ -15,13 +15,25 @@ import Model.Process;
  */
 public class MainController {
     
+    private static MainController instance;
+    
     private ArrayList<Process> processes;
     private Mailbox mailbox;
+    private UiController uiController;
 
-    public MainController() {
+    private MainController() {
         
         processes = new ArrayList();
         mailbox = new Mailbox(this);
+        uiController = new UiController(this);
+    }
+    
+    public MainController getinstance(){
+        if(instance == null){
+            instance = new MainController();
+        }
+        
+        return instance;
     }
 
     public ArrayList getProcesses() {
@@ -46,5 +58,10 @@ public class MainController {
         }
         return null;
     }
+
+    void sendCommand(String text) {
+        
+    }
+    
     
 }
