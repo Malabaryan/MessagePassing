@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Controller.MainController;
 import Controller.ParameterState;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -72,7 +73,7 @@ public class MessageQueue {
         if (messages.size() < ParametersController.getQueueSize()){
             messages.add(message);
         } else {
-            //LOG "QUEUE FULL"
+            MainController.getInstance().getUiController().getLogger().addLog("Queue Full");
         }
     }
     

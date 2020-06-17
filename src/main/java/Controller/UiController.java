@@ -25,6 +25,7 @@ public class UiController {
         this.controller = controller;
         setup = new Setup(this);
         mainWindow = new Window(this);
+        logger = new Logger();
     }
 
     public Setup getSetup() {
@@ -45,6 +46,10 @@ public class UiController {
 
     public MainController getController() {
         return controller;
+    }
+    
+    public Logger getLogger() {
+        return logger;
     }
 
     public void sendCommand(String text) {
