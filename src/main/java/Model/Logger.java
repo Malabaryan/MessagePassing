@@ -32,8 +32,5 @@ public class Logger {
         logger.add(new Log(new Message(msg), new Date()));
     }
     
-    public void addLog(String msg){
-        logger.add(new Log(new Message(msg), new Date()));
-    }
     
 }

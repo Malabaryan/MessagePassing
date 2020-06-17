@@ -359,12 +359,14 @@ public class Setup extends javax.swing.JFrame {
 
     private void r_addresDirectExplicitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addresDirectExplicitActionPerformed
         // TODO add your handling code here:
-        ParametersController.setAddressing(ParameterState.Addr_Direct_Receive_Explicit);
+        ParametersController.setAddressing_Receive(ParameterState.Addr_Direct_Receive_Explicit);
+        ParametersController.setAddressing_Send(ParameterState.Addr_Direct_Send);
     }//GEN-LAST:event_r_addresDirectExplicitActionPerformed
 
     private void r_addressIndirectStaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addressIndirectStaticActionPerformed
         // TODO add your handling code here:
-        ParametersController.setAddressing(ParameterState.Addr_Indirect_Static);
+        ParametersController.setAddressing_Receive(ParameterState.Addr_Indirect_Static);
+        ParametersController.setAddressing_Send(ParameterState.Addr_Indirect_Static);
     }//GEN-LAST:event_r_addressIndirectStaticActionPerformed
 
     private void r_lenghtFixedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_lenghtFixedActionPerformed
@@ -395,12 +397,14 @@ public class Setup extends javax.swing.JFrame {
 
     private void r_addreIndirectdynamicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addreIndirectdynamicActionPerformed
         // TODO add your handling code here:
-        ParametersController.setAddressing(ParameterState.Addr_Indirect_Dynamic);
+        ParametersController.setAddressing_Receive(ParameterState.Addr_Indirect_Dynamic);
+        ParametersController.setAddressing_Send(ParameterState.Addr_Indirect_Dynamic);
     }//GEN-LAST:event_r_addreIndirectdynamicActionPerformed
 
     private void r_addreDirectImplicitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addreDirectImplicitActionPerformed
         // TODO add your handling code here:
-        ParametersController.setAddressing(ParameterState.Addr_Direct_Receive_Implicit);
+        ParametersController.setAddressing_Receive(ParameterState.Addr_Direct_Receive_Implicit);
+        ParametersController.setAddressing_Send(ParameterState.Addr_Direct_Send);
     }//GEN-LAST:event_r_addreDirectImplicitActionPerformed
 
     private void r_syncReceiProofOFArrivalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_syncReceiProofOFArrivalActionPerformed

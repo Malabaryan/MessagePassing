@@ -74,16 +74,7 @@ public class MainController {
         
     }
     
-    public void startSimulation(ParameterState syncSend, ParameterState syncReceive, ParameterState addressing, ParameterState formatLenght, ParameterState queue, int noProcess, int maxQueueLenght){
-        startSimulation(syncSend, syncReceive, addressing,formatLenght, 0,queue, noProcess,maxQueueLenght);
-    }
     
-    public void startSimulation(ParameterState syncSend, ParameterState syncReceive, ParameterState addressing, ParameterState formatLenght, int fixedValue, ParameterState queue, int noProcess, int maxQueueLenght){
-        ParametersController.setAddressing(addressing);
-        ParametersController.setMessageLength(fixedValue);
-        ParametersController.setQueueStrategy(queue);
-        ParametersController.setSyncronization_Send(syncSend);
-        ParametersController.setSyncronization_Receive(syncReceive);
-    }
+    
     
 }
