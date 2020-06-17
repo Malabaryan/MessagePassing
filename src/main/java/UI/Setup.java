@@ -5,6 +5,8 @@
  */
 package UI;
 
+import Controller.ParameterState;
+import Controller.ParametersController;
 import Controller.UiController;
 
 public class Setup extends javax.swing.JFrame {
@@ -46,33 +48,33 @@ public class Setup extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        r_syncReceiProofOFArrival = new javax.swing.JRadioButton();
+        r_syncReceNonBlock = new javax.swing.JRadioButton();
+        r_syncReceiveBlocking = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        r_addreDirectImplicit = new javax.swing.JRadioButton();
+        r_addresDirectExplicit = new javax.swing.JRadioButton();
+        r_addressIndirectStatic = new javax.swing.JRadioButton();
+        r_addreIndirectdynamic = new javax.swing.JRadioButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
+        r_lenghtVariable = new javax.swing.JRadioButton();
+        r_lenghtFixed = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        r_queueFifo = new javax.swing.JRadioButton();
+        r_queuePriority = new javax.swing.JRadioButton();
+        btn_simulationStart = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spin_noProcesses = new javax.swing.JSpinner();
         jLabel27 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner3 = new javax.swing.JSpinner();
+        spin_fixed = new javax.swing.JSpinner();
+        spin_maxQueueLenght = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(720, 720));
@@ -163,185 +165,263 @@ public class Setup extends javax.swing.JFrame {
         getContentPane().add(jRadioButton1);
         jRadioButton1.setBounds(280, 100, 21, 21);
 
-        radiogroup_syncreceive.add(jRadioButton2);
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(280, 230, 21, 21);
-
-        radiogroup_syncreceive.add(jRadioButton3);
-        getContentPane().add(jRadioButton3);
-        jRadioButton3.setBounds(280, 210, 21, 21);
-
-        radiogroup_syncreceive.add(jRadioButton4);
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_syncreceive.add(r_syncReceiProofOFArrival);
+        r_syncReceiProofOFArrival.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                r_syncReceiProofOFArrivalActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton4);
-        jRadioButton4.setBounds(280, 190, 21, 21);
+        getContentPane().add(r_syncReceiProofOFArrival);
+        r_syncReceiProofOFArrival.setBounds(280, 230, 21, 21);
+
+        radiogroup_syncreceive.add(r_syncReceNonBlock);
+        r_syncReceNonBlock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_syncReceNonBlockActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r_syncReceNonBlock);
+        r_syncReceNonBlock.setBounds(280, 210, 21, 21);
+
+        radiogroup_syncreceive.add(r_syncReceiveBlocking);
+        r_syncReceiveBlocking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_syncReceiveBlockingActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r_syncReceiveBlocking);
+        r_syncReceiveBlocking.setBounds(280, 190, 21, 21);
 
         radiogroup_syncSend.add(jRadioButton5);
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadioButton5);
         jRadioButton5.setBounds(280, 120, 21, 21);
 
-        radiogroup_addressing.add(jRadioButton6);
-        getContentPane().add(jRadioButton6);
-        jRadioButton6.setBounds(270, 380, 21, 21);
-
-        radiogroup_addressing.add(jRadioButton7);
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_addressing.add(r_addreDirectImplicit);
+        r_addreDirectImplicit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                r_addreDirectImplicitActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton7);
-        jRadioButton7.setBounds(270, 360, 21, 21);
+        getContentPane().add(r_addreDirectImplicit);
+        r_addreDirectImplicit.setBounds(270, 380, 21, 21);
 
-        radiogroup_addressing.add(jRadioButton8);
-        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_addressing.add(r_addresDirectExplicit);
+        r_addresDirectExplicit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton8ActionPerformed(evt);
+                r_addresDirectExplicitActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton8);
-        jRadioButton8.setBounds(270, 420, 21, 21);
+        getContentPane().add(r_addresDirectExplicit);
+        r_addresDirectExplicit.setBounds(270, 360, 21, 21);
 
-        radiogroup_addressing.add(jRadioButton9);
-        getContentPane().add(jRadioButton9);
-        jRadioButton9.setBounds(270, 440, 21, 21);
+        radiogroup_addressing.add(r_addressIndirectStatic);
+        r_addressIndirectStatic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_addressIndirectStaticActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r_addressIndirectStatic);
+        r_addressIndirectStatic.setBounds(270, 420, 21, 21);
+
+        radiogroup_addressing.add(r_addreIndirectdynamic);
+        r_addreIndirectdynamic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_addreIndirectdynamicActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r_addreIndirectdynamic);
+        r_addreIndirectdynamic.setBounds(270, 440, 21, 21);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("No. Processes");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(430, 70, 180, 20);
+        jLabel15.setBounds(430, 160, 180, 20);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel19.setText("Format");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(110, 510, 180, 20);
+        jLabel19.setBounds(80, 510, 180, 20);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel20.setText("Variable");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(180, 590, 70, 20);
+        jLabel20.setBounds(150, 590, 70, 20);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel21.setText("Lenght");
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(150, 540, 180, 20);
+        jLabel21.setBounds(120, 540, 180, 20);
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel23.setText("Fixed");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(180, 570, 70, 20);
+        jLabel23.setBounds(150, 570, 70, 20);
 
-        radiogroup_lenght.add(jRadioButton10);
-        getContentPane().add(jRadioButton10);
-        jRadioButton10.setBounds(250, 590, 21, 21);
-
-        radiogroup_lenght.add(jRadioButton11);
-        jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_lenght.add(r_lenghtVariable);
+        r_lenghtVariable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton11ActionPerformed(evt);
+                r_lenghtVariableActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton11);
-        jRadioButton11.setBounds(250, 570, 21, 21);
+        getContentPane().add(r_lenghtVariable);
+        r_lenghtVariable.setBounds(220, 590, 21, 21);
+
+        radiogroup_lenght.add(r_lenghtFixed);
+        r_lenghtFixed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_lenghtFixedActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r_lenghtFixed);
+        r_lenghtFixed.setBounds(220, 570, 21, 21);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel22.setText("Queue");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(110, 630, 180, 20);
+        jLabel22.setBounds(430, 70, 180, 20);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel24.setText("FIFO");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(150, 650, 120, 20);
+        jLabel24.setBounds(470, 90, 120, 20);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel25.setText("Priority");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(150, 670, 110, 20);
+        jLabel25.setBounds(470, 110, 110, 20);
 
-        radiogroup_queue.add(jRadioButton12);
-        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_queue.add(r_queueFifo);
+        r_queueFifo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton12ActionPerformed(evt);
+                r_queueFifoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton12);
-        jRadioButton12.setBounds(270, 650, 21, 21);
+        getContentPane().add(r_queueFifo);
+        r_queueFifo.setBounds(590, 90, 21, 21);
 
-        radiogroup_queue.add(jRadioButton13);
-        getContentPane().add(jRadioButton13);
-        jRadioButton13.setBounds(270, 670, 21, 21);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Start Simulation");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        radiogroup_queue.add(r_queuePriority);
+        r_queuePriority.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                r_queuePriorityActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(540, 662, 160, 31);
+        getContentPane().add(r_queuePriority);
+        r_queuePriority.setBounds(590, 110, 21, 21);
+
+        btn_simulationStart.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_simulationStart.setText("Start Simulation");
+        btn_simulationStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_simulationStartActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_simulationStart);
+        btn_simulationStart.setBounds(520, 580, 160, 31);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(390, 80, 20, 620);
+        jSeparator1.setBounds(390, 80, 20, 530);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel26.setText("Syncronization Send");
         getContentPane().add(jLabel26);
         jLabel26.setBounds(80, 70, 180, 20);
-        getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(580, 70, 80, 20);
+        getContentPane().add(spin_noProcesses);
+        spin_noProcesses.setBounds(580, 160, 80, 20);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel27.setText("Max Queue Lenght");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(430, 110, 180, 20);
-        getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(280, 570, 80, 20);
-        getContentPane().add(jSpinner3);
-        jSpinner3.setBounds(580, 110, 80, 20);
+        jLabel27.setBounds(430, 200, 180, 20);
+        getContentPane().add(spin_fixed);
+        spin_fixed.setBounds(250, 570, 80, 20);
+        getContentPane().add(spin_maxQueueLenght);
+        spin_maxQueueLenght.setBounds(580, 200, 80, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
+        ParametersController.setSyncronization_Send(ParameterState.Sync_Send_Blocking);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    
+    private void r_syncReceiveBlockingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_syncReceiveBlockingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+        ParametersController.setSyncronization_Receive(ParameterState.Sync_Receive_Blocking);
+    }//GEN-LAST:event_r_syncReceiveBlockingActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void r_addresDirectExplicitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addresDirectExplicitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+        ParametersController.setAddressing(ParameterState.Addr_Direct_Receive_Explicit);
+    }//GEN-LAST:event_r_addresDirectExplicitActionPerformed
 
-    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+    private void r_addressIndirectStaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addressIndirectStaticActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton8ActionPerformed
+        ParametersController.setAddressing(ParameterState.Addr_Indirect_Static);
+    }//GEN-LAST:event_r_addressIndirectStaticActionPerformed
 
-    private void jRadioButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton11ActionPerformed
+    private void r_lenghtFixedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_lenghtFixedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton11ActionPerformed
+        ParametersController.setFormat(ParameterState.Form_Lenght_Fixed);
+    }//GEN-LAST:event_r_lenghtFixedActionPerformed
 
-    private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
+    private void r_queueFifoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_queueFifoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton12ActionPerformed
+        ParametersController.setQueueStrategy(ParameterState.Queue_FIFO);
+    }//GEN-LAST:event_r_queueFifoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_simulationStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simulationStartActionPerformed
         // TODO add your handling code here:
-        // this.radiogroup_addressing.getSelection().
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.controller.startSimulation(this.spin_fixed.getValue(),this.spin_noProcesses.getValue(),this.spin_maxQueueLenght.getValue());
+        this.controller.showMainWindow();
+    }//GEN-LAST:event_btn_simulationStartActionPerformed
+
+    private void r_queuePriorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_queuePriorityActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setQueueStrategy(ParameterState.Queue_Priority);
+    }//GEN-LAST:event_r_queuePriorityActionPerformed
+
+    private void r_lenghtVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_lenghtVariableActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setFormat(ParameterState.Form_Lenght_Variable);
+    }//GEN-LAST:event_r_lenghtVariableActionPerformed
+
+    private void r_addreIndirectdynamicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addreIndirectdynamicActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setAddressing(ParameterState.Addr_Indirect_Dynamic);
+    }//GEN-LAST:event_r_addreIndirectdynamicActionPerformed
+
+    private void r_addreDirectImplicitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_addreDirectImplicitActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setAddressing(ParameterState.Addr_Direct_Receive_Implicit);
+    }//GEN-LAST:event_r_addreDirectImplicitActionPerformed
+
+    private void r_syncReceiProofOFArrivalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_syncReceiProofOFArrivalActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setSyncronization_Receive(ParameterState.Sync_Receive_ProofOfArrival);
+    }//GEN-LAST:event_r_syncReceiProofOFArrivalActionPerformed
+
+    private void r_syncReceNonBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_syncReceNonBlockActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setSyncronization_Receive(ParameterState.Sync_Receive_NonBlocking);
+    }//GEN-LAST:event_r_syncReceNonBlockActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        // TODO add your handling code here:
+        ParametersController.setSyncronization_Send(ParameterState.Sync_Send_NonBlocking);
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_simulationStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -368,26 +448,26 @@ public class Setup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JRadioButton r_addreDirectImplicit;
+    private javax.swing.JRadioButton r_addreIndirectdynamic;
+    private javax.swing.JRadioButton r_addresDirectExplicit;
+    private javax.swing.JRadioButton r_addressIndirectStatic;
+    private javax.swing.JRadioButton r_lenghtFixed;
+    private javax.swing.JRadioButton r_lenghtVariable;
+    private javax.swing.JRadioButton r_queueFifo;
+    private javax.swing.JRadioButton r_queuePriority;
+    private javax.swing.JRadioButton r_syncReceNonBlock;
+    private javax.swing.JRadioButton r_syncReceiProofOFArrival;
+    private javax.swing.JRadioButton r_syncReceiveBlocking;
     private javax.swing.ButtonGroup radiogroup_addressing;
     private javax.swing.ButtonGroup radiogroup_lenght;
     private javax.swing.ButtonGroup radiogroup_queue;
     private javax.swing.ButtonGroup radiogroup_syncSend;
     private javax.swing.ButtonGroup radiogroup_syncreceive;
+    private javax.swing.JSpinner spin_fixed;
+    private javax.swing.JSpinner spin_maxQueueLenght;
+    private javax.swing.JSpinner spin_noProcesses;
     // End of variables declaration//GEN-END:variables
 }

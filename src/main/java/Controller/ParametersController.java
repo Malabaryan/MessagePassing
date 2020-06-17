@@ -11,6 +11,7 @@ package Controller;
  */
 public class ParametersController {
     private static ParametersController parametersController;
+    
     private static ParameterState syncronization_Send;
     private static ParameterState syncronization_Receive;
     private static ParameterState addressing_Send;

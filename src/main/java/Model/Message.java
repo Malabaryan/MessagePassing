@@ -46,6 +46,11 @@ public class Message {
         this.priority = priority;
         checkMessageLenght();
     }
+
+    public Message(String messageContent) {
+        this.messageContent = messageContent;
+    }
+    
     
     private void checkMessageLenght(){
         if(ParametersController.getMessageLength() > 0){
