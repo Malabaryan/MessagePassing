@@ -23,6 +23,8 @@ public class Mailbox {
     private MainController controller;
 
     public Mailbox(MainController pController) {
+        sendprocesses = new ArrayList<Process>();
+        receiveprocesses = new ArrayList<Process>();
         messages = new MessageQueue();
         this.controller = pController;
     }
@@ -56,5 +58,13 @@ public class Mailbox {
             }
         }
         return null;
+    }
+    
+    public void addListSend(Process pProcess){
+        sendprocesses.add(pProcess);
+    }
+    
+    public void addListReceive(Process pProcess){
+        receiveprocesses.add(pProcess);
     }
 }
