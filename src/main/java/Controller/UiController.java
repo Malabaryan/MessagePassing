@@ -7,6 +7,7 @@ package Controller;
 
 import Model.Logger;
 import Model.Log;
+import Model.Process;
 import UI.Setup;
 import UI.Window;
 import java.util.ArrayList;
@@ -83,8 +84,12 @@ public class UiController {
         
     }
 
-    public void startSimulation(Object value, Object value0, Object value1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void startSimulation(int formatSize, int noProcesses, int spin_maxQueueLenght) {
+        for(int i = 0; i < noProcesses;i++){
+            this.controller.AddProcess(new Process(Integer.toString(i),this.controller.getMailbox()));
+        }
+        ParametersController.setQueueSize(spin_maxQueueLenght);
+        ParametersController.setMessageLength(formatSize);
+     }
     
 }
