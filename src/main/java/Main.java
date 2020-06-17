@@ -3,6 +3,7 @@ import Model.Message;
 import Model.Process;
 import Controller.ParametersController;
 import Controller.MainController;
+import Controller.ParameterState;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,10 +23,11 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ParametersController parametros = ParametersController.getInstance();
-        Controller.ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
-        Controller.ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
-        Controller.ParameterState adressingReceive = Controller.ParameterState.Addr_Direct_Receive_Implicit;
-        Controller.ParameterState adressingSend = Controller.ParameterState.Addr_Direct_Send;
+        ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
+        ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
+        ParameterState adressingReceive = Controller.ParameterState.Addr_Direct_Receive_Implicit;
+        ParameterState adressingSend = Controller.ParameterState.Addr_Direct_Send;
+        
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
         parametros.setAddressing_Send(adressingSend);
@@ -36,6 +38,8 @@ public class Main {
         Process nuevo2 = new Model.Process("2",maincontroller.getMailbox());
         Process nuevo3 = new Model.Process("3",maincontroller.getMailbox());
         
+        
+        System.out.print(ParametersController.getSyncronization_Send().toString());
         Message mensaje = new Message();
         nuevo1.sendMessage(mensaje, "2");
         for(int i = 0; i<=50; i++){
