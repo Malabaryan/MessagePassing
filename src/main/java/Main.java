@@ -22,6 +22,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        MainController maincontroller = MainController.getInstance();
+        Process nuevo1 = new Model.Process("1",maincontroller.getMailbox());
+        Process nuevo2 = new Model.Process("2",maincontroller.getMailbox());
+        Process nuevo3 = new Model.Process("3",maincontroller.getMailbox());
+        
+        
         ParametersController parametros = ParametersController.getInstance();
         ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
         ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
@@ -33,11 +40,7 @@ public class Main {
         parametros.setAddressing_Send(adressingSend);
         parametros.setAddressing_Receive(adressingReceive);
         
-        MainController maincontroller = MainController.getInstance();
-        Process nuevo1 = new Model.Process("1",maincontroller.getMailbox());
-        Process nuevo2 = new Model.Process("2",maincontroller.getMailbox());
-        Process nuevo3 = new Model.Process("3",maincontroller.getMailbox());
-        
+
         
         System.out.print(ParametersController.getSyncronization_Send().toString());
         Message mensaje = new Message();

@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Bryan Hernandez
  */
-class Log {
+public class Log {
     
     private Message msg;
     private Date timeStamp;
