@@ -67,7 +67,8 @@ public class Message {
     public int getPriority() {
         return priority;
     }
-    
-    
-    
+
+    public void setDestinationID(String destinationID) {
+        this.destinationID = destinationID;
+    }
 }
