@@ -35,6 +35,10 @@ public class MainController {
         
         return instance;
     }
+    
+    public Mailbox getMailbox(){
+        return mailbox;
+    }
 
     public ArrayList getProcesses() {
         return processes;

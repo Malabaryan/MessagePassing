@@ -6,6 +6,7 @@
 package Model;
 import Controller.ParameterState;
 import Controller.ParametersController;
+import Controller.MainController;
 
 /**
  *
@@ -16,7 +17,6 @@ public class Process {
     private Message currentMessage;
     private Mailbox mailboxAssociated;
     public  boolean bloqueo;
-    public  ParametersController parametros;
     private String ID;
 
     public Process(Mailbox pMailbox) {
@@ -24,7 +24,7 @@ public class Process {
     }
     
     public void Syncronizacion_Send(){
-        ParameterState estado = parametros.getSyncronization_Send();
+        ParameterState estado = ParametersController.getSyncronization_Send();
         if(null == estado){
             bloqueo = false;
         }
@@ -43,12 +43,9 @@ public class Process {
         }
     }
     
-    public Message receiveMessage(Message pMessage){
-        return null;
-    }
     
     public void Syncronizacion_Receive(){
-        ParameterState estado = parametros.getSyncronization_Receive();
+        ParameterState estado = ParametersController.getSyncronization_Receive();
         if(null == estado){
             bloqueo = false;
         }
@@ -102,4 +99,20 @@ public class Process {
         Syncronizacion_Send();
         pProceso.Syncronizacion_Receive();
     }
+    
+    public void sendMessage(Message pMessage){
+        Syncronizacion_Send();
+        mailboxAssociated.addMessage(pMessage);
+    }
+    
+    public void receiveMessage(Message pMessage){
+        currentMessage = mailboxAssociated.messages.getNextMessage();
+        //Process process = 
+        boolean pbloqueo_Receive = getBloqueo();
+        if(pbloqueo_Receive == true){
+            setBloqueo(false);
+            System.out.print("Desbloqueado");
+        }
+    }
+    
 }
