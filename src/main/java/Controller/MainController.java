@@ -63,8 +63,23 @@ public class MainController {
         return null;
     }
 
-    void sendCommand(String text) {
+    void executeCommand(String text) {
+        String[] commands = text.split("\n");
         
+        for(String str : commands) {
+            String[] subString = str.split("[()]");
+            String[] parameters = subString[1].split(",");
+            if (subString[0].equals("create")){
+                //CREATE COMMAND
+            } else if (subString[0].equals("send")){
+                //SEND COMMAND
+            } else if (subString[0].equals("recieve")){
+                //RECIEVE COMMAND
+            } else {
+                //INVALID COMMAND
+            }
+            
+        }
     }
     
     

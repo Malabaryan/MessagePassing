@@ -48,7 +48,7 @@ public class UiController {
     }
 
     public void sendCommand(String text) {
-        this.controller.sendCommand(text);
+        this.controller.executeCommand(text);
     }
 
     public void updateTextField(JTextArea txt_selectedprocesses, String hola) {
