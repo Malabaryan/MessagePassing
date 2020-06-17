@@ -56,15 +56,19 @@ public class MainController {
         processes.add(pProcess);
     }
     
-    public String[] getProcessesString() {
-        String [] processList = new String [processes.size()];
-        int cont = 0;
+    public ArrayList<String> getProcessesStringArrayList() {
+        ArrayList<String> processList = new ArrayList();// [processes.size()];
         for(Process process: processes){
-            processList[cont] = process.getID();
-            cont++;
+            processList.add(process.getID());
         }
         return processList;
     }
+    
+    public String[] getProcessesString() {
+        String[] processList = getProcessesStringArrayList().toArray(new String[0]);
+        return processList;
+    }
+    
     
     public Process getProcess(String ID){
         for(Process process: processes){
@@ -75,7 +79,8 @@ public class MainController {
         return null;
     }
 
-    void executeCommand(String text,String Source, String Destination) {
+
+    public void executeCommand(String text) {
         String[] commands = text.split("\n");
         for(String str : commands) {
             String[] subString = str.split("[()]");
@@ -87,15 +92,15 @@ public class MainController {
                 getMailbox().addListReceive(process);
                 AddProcess(process);
             } else if (subString[0].equals("send")){
-                //SEND COMMAND
-                Message mensaje = new Message(Destination, Source, parameters[0]);
+                //SEND COMMAND send(Destination, Source, Mesage)
+                Message mensaje = new Message(parameters[0], parameters[1], parameters[2]);
                 Process process = getProcess(parameters[0]);
-                process.sendMessage(mensaje,Destination);
+                process.sendMessage(mensaje,parameters[0]);
             } else if (subString[0].equals("recieve")){
-                //RECIEVE COMMAND
-                Message mensaje = new Message(Destination, Source, parameters[0]);
+                //RECIEVE COMMAND recieve(Destination, Source, Mesage)
+                Message mensaje = new Message(parameters[0], parameters[1], parameters[2]);
                 Process process = getProcess(parameters[0]);
-                process.receiveMessage(mensaje,Source);
+                process.receiveMessage(mensaje,parameters[1]);
             } else {
                 //INVALID COMMAND
             }

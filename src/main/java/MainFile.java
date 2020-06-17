@@ -12,7 +12,7 @@ import Controller.UiController;
  *
  * @author Bryan Hernandez
  */
-public class NewMain {
+public class MainFile {
 
     /**
      * @param args the command line arguments
@@ -20,8 +20,7 @@ public class NewMain {
     public static void main(String[] args) {
         // TODO code application logic here
         MainController maincontroller = MainController.getInstance();
-        UiController ui = new UiController(maincontroller);
-        ui.showSetup();
+        maincontroller.getUiController().showSetup();
     }
     
 }
