@@ -381,7 +381,7 @@ public class Setup extends javax.swing.JFrame {
 
     private void btn_simulationStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simulationStartActionPerformed
         // TODO add your handling code here:
-        this.controller.startSimulation(this.spin_fixed.getValue(),this.spin_noProcesses.getValue(),this.spin_maxQueueLenght.getValue());
+        this.controller.startSimulation((int)this.spin_fixed.getValue(),(int)this.spin_noProcesses.getValue(),(int)this.spin_maxQueueLenght.getValue());
         this.controller.showMainWindow();
     }//GEN-LAST:event_btn_simulationStartActionPerformed
 
