@@ -217,14 +217,14 @@ public class Process {
                     }
                     else{
                         System.out.print("Este Proceso no pertenece a esta mailBox");
-                        MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox");
+                        MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox",messagesprereceive.peek());
                     }
                     return null;
                 }
             }
             else{
                 System.out.print("No tiene mensajes para recibir");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no tiene mensajes");        
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no tiene mensajes",messagesprereceive.peek());        
             }
         }
         else{
@@ -245,20 +245,20 @@ public class Process {
                         }
                         else{
                             System.out.print("Este Proceso no pertenece a esta mailBox o esta bloqueado");
-                            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox o esta bloqueado");
+                            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox o esta bloqueado",messagesprereceive.peek());
                         }
                         return null;
                     }
                 }
                 else{
                     System.out.print("Este mensaje no corresponde al destinatario");
-                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no corresponde al destinatario");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no corresponde al destinatario",messagesprereceive.peek());
                         
                 }
             }
             else{
                 System.out.print("Este Proceso no puede recibir Mensajes esta Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no puede recibir Mensajes esta Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no puede recibir Mensajes esta Bloqueado",messagesprereceive.peek());
             }
         }
         return null;

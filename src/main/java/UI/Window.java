@@ -23,6 +23,7 @@ public class Window extends javax.swing.JFrame {
     public Window(UiController pController) {
         controller = pController;
         initComponents();
+        
     }
 
     /**
@@ -50,17 +51,6 @@ public class Window extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txt_selectedprocesses = new javax.swing.JTextArea();
-        jPanel13 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txt_process1 = new javax.swing.JTextArea();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txt_process2 = new javax.swing.JTextArea();
-        btn_next = new javax.swing.JButton();
-        btn_back = new javax.swing.JButton();
         btn_update = new javax.swing.JButton();
         combo_processesSelected = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -106,7 +96,7 @@ public class Window extends javax.swing.JFrame {
 
         jLabel6.setText("Process");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(360, 50, 50, 14);
+        jLabel6.setBounds(360, 50, 50, 16);
 
         jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel9.setLayout(new java.awt.GridLayout(2, 0));
@@ -117,7 +107,7 @@ public class Window extends javax.swing.JFrame {
 
         jLabel9.setText("All Processes");
         jPanel11.add(jLabel9);
-        jLabel9.setBounds(10, 10, 62, 14);
+        jLabel9.setBounds(10, 10, 79, 16);
 
         txt_allprocesses.setColumns(20);
         txt_allprocesses.setRows(5);
@@ -161,84 +151,8 @@ public class Window extends javax.swing.JFrame {
 
         jPanel9.add(jPanel10);
 
-        jPanel13.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel11.setText("Process");
-
-        txt_process1.setColumns(20);
-        txt_process1.setRows(5);
-        jScrollPane5.setViewportView(txt_process1);
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel13.add(jPanel14);
-
-        jLabel12.setText("Process");
-
-        txt_process2.setColumns(20);
-        txt_process2.setRows(5);
-        jScrollPane6.setViewportView(txt_process2);
-
-        btn_next.setText("Next");
-
-        btn_back.setText("Back");
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_back)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_next)))
-                .addContainerGap())
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(btn_next)
-                    .addComponent(btn_back))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel13.add(jPanel15);
-
-        jPanel9.add(jPanel13);
-
         jPanel3.add(jPanel9);
-        jPanel9.setBounds(10, 70, 676, 424);
+        jPanel9.setBounds(10, 70, 660, 408);
 
         btn_update.setText("Update");
         btn_update.addActionListener(new java.awt.event.ActionListener() {
@@ -247,15 +161,15 @@ public class Window extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_update);
-        btn_update.setBounds(610, 40, 67, 23);
+        btn_update.setBounds(610, 40, 70, 32);
         jPanel3.add(combo_processesSelected);
-        combo_processesSelected.setBounds(418, 40, 190, 22);
+        combo_processesSelected.setBounds(420, 40, 190, 26);
 
         jLabel5.setText("Execute");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(30, 40, 39, 14);
+        jLabel5.setBounds(20, 40, 46, 16);
         jPanel3.add(txt_command);
-        txt_command.setBounds(70, 40, 208, 20);
+        txt_command.setBounds(80, 40, 200, 24);
 
         jButton1.setText("Send");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +178,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(280, 40, 57, 23);
+        jButton1.setBounds(280, 40, 70, 32);
 
         getContentPane().add(jPanel3);
 
@@ -274,27 +188,27 @@ public class Window extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.controller.sendCommand(this.txt_command.getText());
-        this.controller.updateAll(txt_allprocesses, txt_process1, txt_process2);
+        this.controller.updateAll(txt_allprocesses);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
+        this.combo_processesSelected.removeAllItems();
+        for(String str : this.controller.getController().getProcessesStringArrayList()){
+            this.combo_processesSelected.addItem(str);
+        }
         String processSelected = this.combo_processesSelected.getItemAt(combo_processesSelected.getSelectedIndex());
         
         this.controller.updateTextField(this.txt_selectedprocesses, this.controller.getLogOf(processSelected).toString());
-        this.controller.updateAll(this.txt_allprocesses,this.txt_process1,this.txt_process2);
+        this.controller.updateAll(this.txt_allprocesses);
     }//GEN-LAST:event_btn_updateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_back;
-    private javax.swing.JButton btn_next;
     private javax.swing.JButton btn_update;
     private javax.swing.JComboBox<String> combo_processesSelected;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -302,9 +216,6 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
@@ -312,12 +223,8 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea txt_allprocesses;
     private javax.swing.JTextField txt_command;
-    private javax.swing.JTextArea txt_process1;
-    private javax.swing.JTextArea txt_process2;
     private javax.swing.JTextArea txt_selectedprocesses;
     // End of variables declaration//GEN-END:variables
 }

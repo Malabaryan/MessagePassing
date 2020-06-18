@@ -60,26 +60,32 @@ public class UiController {
     }
 
     public void updateTextField(JTextArea txt_selectedprocesses, String ID) {
-        txt_selectedprocesses.setText(this.getLogOf(ID).toString());
+        String fullString = "";
+        for(Log log: getLogOf(ID)){
+            fullString = fullString + "[" + log.getTimeStamp() + "]: " 
+                    + log.getText() + " - " + log.getMsg().getSourceID() 
+                    + " to " + log.getMsg().getDestinationID() + "\n";
+        }
+        txt_selectedprocesses.setText(fullString);
     }
 
     
-    public ArrayList<String> getLogOf(String processID) {
-        ArrayList<String> logs = new ArrayList();
+    public ArrayList<Log> getLogOf(String processID) {
+        ArrayList<Log> logs = new ArrayList();
         for(Log log: this.logger.getLogger()){
             if(log.getMsg().getDestinationID().equals(processID)){
                 if(log.getMsg().getDestinationID()  == null || log.getMsg().getSourceID()  == null){
-                    logs.add(log.getText());
+                    logs.add(log);
                 }
                 else{
-                    logs.add(log.getText() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID());
+                    logs.add(log);
                 }
             }
         }
         return logs;
     }
 
-    public void updateAll(JTextArea txt_allprocesses, JTextArea txt_process1, JTextArea txt_process2) {
+    public void updateAll(JTextArea txt_allprocesses) {
         String fullString = "";
         for(Log log: logger.getLogger()){
             fullString = fullString + log.getText() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
