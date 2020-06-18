@@ -203,11 +203,11 @@ public class Process {
         if(bloqueo_recibir==false){
             if(currentMessage!=null){
                 if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
-                    receiveMessage_DirectImplicit(poll(),ID);
+                    receiveMessage_DirectImplicit(currentMessage,ID);
                         return null;
                 }
                 else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
-                    receiveMessage_DirectImplicit(poll(),ID);
+                    receiveMessage_DirectImplicit(currentMessage,ID);
                     return MainController.getInstance().getProcess(ID);
                 }
                 else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
@@ -231,11 +231,11 @@ public class Process {
                 boolean destinatario = destinatariodemensaje(ID);
                 if(destinatario == true){
                     if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
-                        receiveMessage_DirectImplicit(poll(),ID);
+                        receiveMessage_DirectImplicit(currentMessage,ID);
                             return null;
                     }
                     else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
-                        receiveMessage_DirectImplicit(poll(),ID);
+                        receiveMessage_DirectImplicit(currentMessage,ID);
                         return MainController.getInstance().getProcess(ID);
                         }
                     else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
