@@ -102,18 +102,18 @@ public class Process {
             if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                 process_send.desbloquear_Test_Arrival();
                 System.out.print("Desbloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
             }
             else{
                 process_send.setBloqueo(false);
                 System.out.print("Desbloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
                 }
         }
         if(pbloqueo_Receive == true){
             setBloqueo(false);
             System.out.print("Desbloqueado");
-            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
             messagesreceive.add(pMessage);
         }
         else{
@@ -145,19 +145,19 @@ public class Process {
                 if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                     desbloquear_Test_Arrival();
                     System.out.print("Desbloqueado");
-                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
                 }
                 else{
                     process.setBloqueo(false);
                     System.out.print("Desbloqueado");
-                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
                 }
             }
             boolean pbloqueo_Receive = getBloqueo();
             if(pbloqueo_Receive == true){
                 process.setBloqueo(false);
                 System.out.print("Desbloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
                 messagesreceive.add(mensaje);
             }
             else{
@@ -167,7 +167,7 @@ public class Process {
         }
         else{
             System.out.print("No se pruede recibir el mensaje");
-            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pudo recibir el mensaje");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pudo recibir el mensaje",mensaje);
         }
     }
     
@@ -183,7 +183,7 @@ public class Process {
                 }
                 else{
                     System.out.print("Este Proceso no pertenece a esta mailBox");
-                    MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox");
+                    MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox",pMessage);
                 }
             }
             else{
@@ -192,7 +192,7 @@ public class Process {
         }
         else{
             System.out.print("Este Proceso esta bloqueado no puede enviar");
-            MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " esta bloqueado no puede enviar");
+            MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " esta bloqueado no puede enviar",pMessage);
         }
     }
     

@@ -69,10 +69,10 @@ public class UiController {
         for(Log log: this.logger.getLogger()){
             if(log.getMsg().getDestinationID().equals(processID)){
                 if(log.getMsg().getDestinationID()  == null || log.getMsg().getSourceID()  == null){
-                    logs.add(log.getMsg().getMessageContent());
+                    logs.add(log.getText());
                 }
                 else{
-                    logs.add(log.getMsg().getMessageContent() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID());
+                    logs.add(log.getText() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID());
                 }
             }
         }
@@ -82,7 +82,7 @@ public class UiController {
     public void updateAll(JTextArea txt_allprocesses, JTextArea txt_process1, JTextArea txt_process2) {
         String fullString = "";
         for(Log log: logger.getLogger()){
-            fullString = fullString + log.getMsg().getMessageContent() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
+            fullString = fullString + log.getText() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
         }
         txt_allprocesses.setText(fullString);
         

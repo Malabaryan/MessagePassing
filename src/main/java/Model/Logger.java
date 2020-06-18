@@ -34,6 +34,10 @@ public class Logger {
     public void addLog(String msg){
         logger.add(new Log(new Message(msg), new Date()));
     }
+    
+    public void addLog(String txt, Message msg){
+        logger.add(new Log(msg, txt));
+    }
 
     public ArrayList<Log> getLogger() {
         return logger;

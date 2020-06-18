@@ -17,6 +17,7 @@ public class Log {
     
     private Message msg;
     private Date timeStamp;
+    private String text;
 
     public Log(Message msg, Date timeStamp) {
         this.msg = msg;
@@ -28,6 +29,14 @@ public class Log {
         timeStamp = new Date();
     }
 
+    public Log(Message msg, String text) {
+        this.msg = msg;
+        this.text = text;
+        timeStamp = new Date();
+    }
+    
+    
+
     public String getTimeStamp() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");   
         return formatter.format(timeStamp);
@@ -36,5 +45,11 @@ public class Log {
     public Message getMsg() {
         return msg;
     }
+
+    public String getText() {
+        return text;
+    }
+    
+    
     
 }
