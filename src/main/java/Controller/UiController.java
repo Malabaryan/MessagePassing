@@ -88,7 +88,7 @@ public class UiController {
     public void updateAll(JTextArea txt_allprocesses) {
         String fullString = "";
         for(Log log: logger.getLogger()){
-            fullString = fullString + log.getText() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
+            fullString = fullString + log.getText() + " --- " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
         }
         txt_allprocesses.setText(fullString);
         

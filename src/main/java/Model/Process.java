@@ -42,12 +42,12 @@ public class Process {
             case Sync_Send_NonBlocking:
                 bloqueo_enviar = false;
                 System.out.print("No Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " No Bloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " No Bloqueado.", new Message());
                 break;
             case Sync_Send_Blocking:
                 bloqueo_enviar = true;
                 System.out.print("Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " Bloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " Bloqueado.", new Message());
                 break;
             default:
                 bloqueo_enviar = false;
@@ -65,17 +65,17 @@ public class Process {
             case Sync_Receive_NonBlocking:
                 bloqueo_recibir = false;
                 System.out.print("No Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " No Bloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " No Bloqueado.", new Message());
                 break;
             case Sync_Receive_Blocking:
                 bloqueo_recibir = true;
                 System.out.print("Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.", new Message());
                 break;
             case Sync_Receive_ProofOfArrival:
                 bloqueo_recibir = true;
                 System.out.print("Bloqueado");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.", new Message());
                 break;
             default:
                 bloqueo_recibir = false;

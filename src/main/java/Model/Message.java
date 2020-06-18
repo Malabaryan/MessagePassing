@@ -21,6 +21,8 @@ public class Message {
     private int priority;
 
     public Message() {
+        destinationID = "empty";
+        sourceID = "empty";
     }
     
     public Message(String messageContent) {
