@@ -21,7 +21,8 @@ public class Process {
     public  Queue<Message> messagessend;
     public  Queue<Message> messagesprereceive;
     public  Queue<Message> messagesreceive;
-    public  boolean bloqueo;
+    public  boolean bloqueo_enviar;
+    public  boolean bloqueo_recibir;
     private String ID;
 
     public Process(String pid,Mailbox pMailbox) {
@@ -35,21 +36,21 @@ public class Process {
     public void Syncronizacion_Send(){
         ParameterState estado = ParametersController.getInstance().getSyncronization_Send();
         if(null == estado){
-            bloqueo = false;
+            bloqueo_enviar = false;
         }
         else switch (estado) {
             case Sync_Send_NonBlocking:
-                bloqueo = false;
+                bloqueo_enviar = false;
                 System.out.print("No Bloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " No Bloqueado.");
                 break;
             case Sync_Send_Blocking:
-                bloqueo = true;
+                bloqueo_enviar = true;
                 System.out.print("Bloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " Bloqueado.");
                 break;
             default:
-                bloqueo = false;
+                bloqueo_enviar = false;
                 break;
         }
     }
@@ -58,46 +59,55 @@ public class Process {
     public void Syncronizacion_Receive(){
         ParameterState estado = ParametersController.getInstance().getSyncronization_Receive();
         if(null == estado){
-            bloqueo = false;
+            bloqueo_recibir = false;
         }
         else switch (estado) {
             case Sync_Receive_NonBlocking:
-                bloqueo = false;
+                bloqueo_recibir = false;
                 System.out.print("No Bloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " No Bloqueado.");
                 break;
             case Sync_Receive_Blocking:
-                bloqueo = true;
+                bloqueo_recibir = true;
                 System.out.print("Bloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
                 break;
             case Sync_Receive_ProofOfArrival:
-                bloqueo = true;
+                bloqueo_recibir = true;
                 System.out.print("Bloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
                 break;
             default:
-                bloqueo = false;
+                bloqueo_recibir = false;
                 break;
         }
     }
 
-    public void setBloqueo(boolean bloqueo) {
-        this.bloqueo = bloqueo;
+    public void setBloqueo_enviar(boolean bloqueo_enviar) {
+        this.bloqueo_enviar = bloqueo_enviar;
+    }
+
+    public void setBloqueo_recibir(boolean bloqueo_recibir) {
+        this.bloqueo_recibir = bloqueo_recibir;
     }
 
     public String getID() {
         return ID;
     }
-    
-    public boolean getBloqueo() {
-        return bloqueo;
+
+    public boolean getBloqueo_enviar() {
+        return bloqueo_enviar;
     }
+
+    public boolean getBloqueo_recibir() {
+        return bloqueo_recibir;
+    }
+    
     
     public void receiveMessage_DirectImplicit(Message pMessage,String ID){
         Process process_send = MainController.getInstance().getProcess(ID);
-        boolean pbloqueo_Send = process_send.getBloqueo();
-        boolean pbloqueo_Receive = getBloqueo();
+        boolean pbloqueo_Send = process_send.getBloqueo_enviar();
+        boolean pbloqueo_Receive = getBloqueo_recibir();
         if(pbloqueo_Send == true){
             if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                 process_send.desbloquear_Test_Arrival();
@@ -105,13 +115,13 @@ public class Process {
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
             }
             else{
-                process_send.setBloqueo(false);
+                process_send.setBloqueo_enviar(false);
                 System.out.print("Desbloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
                 }
         }
         if(pbloqueo_Receive == true){
-            setBloqueo(false);
+            setBloqueo_recibir(false);
             System.out.print("Desbloqueado");
             MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",pMessage);
             messagesreceive.add(pMessage);
@@ -138,7 +148,7 @@ public class Process {
     public void receiveMessage_Indirect(){
         Message mensaje = mailboxAssociated.messages.getNextMessage();
         Process process_send = MainController.getInstance().getProcess(mensaje.getSourceID());
-        boolean pbloqueo_Send = process_send.getBloqueo();
+        boolean pbloqueo_Send = process_send.getBloqueo_enviar();
         if(pbloqueo_Send == true){
             if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                 process_send.desbloquear_Test_Arrival();
@@ -146,14 +156,14 @@ public class Process {
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
             }
             else{
-                process_send.setBloqueo(false);
+                process_send.setBloqueo_enviar(false);
                 System.out.print("Desbloqueado");
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
             }
         }
-        boolean pbloqueo_Receive = getBloqueo();
+        boolean pbloqueo_Receive = getBloqueo_enviar();
         if(pbloqueo_Receive == true){
-            setBloqueo(false);
+            setBloqueo_enviar(false);
             System.out.print("Desbloqueado");
             MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
             messagesreceive.add(mensaje);
@@ -166,7 +176,7 @@ public class Process {
     
     public void sendMessage(Message pMessage,String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Send();
-        if(bloqueo == false){
+        if(bloqueo_enviar == false){
             if(direccionamiento == ParameterState.Addr_Direct_Send){
                 sendMessage_Direct(pMessage,ID);
             }
@@ -191,7 +201,7 @@ public class Process {
     
     public Process receiveMessage(String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
-        if(bloqueo==false){
+        if(bloqueo_recibir==false){
             if(messagesprereceive.size()>1){
                     if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
                     receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
@@ -255,7 +265,7 @@ public class Process {
     }
     
     public void desbloquear_Test_Arrival(){
-        setBloqueo(false);
+        setBloqueo_enviar(false);
     }
     
     public boolean destinatariodemensaje(String ID){
