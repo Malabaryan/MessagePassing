@@ -266,7 +266,7 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        HelpWindow help = new HelpWindow();
+        Help help = new Help(this, true);
         help.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
