@@ -233,7 +233,8 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
-
+        String processSelected = this.combo_processesSelected.getItemAt(combo_processesSelected.getSelectedIndex());
+        this.controller.updateTextField(this.txt_selectedprocesses, this.controller.getLogOf(processSelected).toString());
     }//GEN-LAST:event_btn_updateActionPerformed
 
     private void combo_processesSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_processesSelectedActionPerformed
