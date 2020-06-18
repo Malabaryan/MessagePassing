@@ -51,7 +51,6 @@ public class Main {
             nuevo3.sendMessage(mensaje, "2");
             System.out.print(i+"\n");
         }
-        nuevo2.receiveMessage(mensaje, "1");
         
     }
     

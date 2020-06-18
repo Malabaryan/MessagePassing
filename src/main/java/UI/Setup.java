@@ -157,6 +157,7 @@ public class Setup extends javax.swing.JFrame {
         jLabel18.setBounds(150, 440, 110, 20);
 
         radiogroup_syncSend.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -184,6 +185,7 @@ public class Setup extends javax.swing.JFrame {
         r_syncReceNonBlock.setBounds(280, 210, 21, 21);
 
         radiogroup_syncreceive.add(r_syncReceiveBlocking);
+        r_syncReceiveBlocking.setSelected(true);
         r_syncReceiveBlocking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_syncReceiveBlockingActionPerformed(evt);
@@ -211,6 +213,7 @@ public class Setup extends javax.swing.JFrame {
         r_addreDirectImplicit.setBounds(270, 380, 21, 21);
 
         radiogroup_addressing.add(r_addresDirectExplicit);
+        r_addresDirectExplicit.setSelected(true);
         r_addresDirectExplicit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_addresDirectExplicitActionPerformed(evt);
@@ -272,6 +275,7 @@ public class Setup extends javax.swing.JFrame {
         r_lenghtVariable.setBounds(220, 590, 21, 21);
 
         radiogroup_lenght.add(r_lenghtFixed);
+        r_lenghtFixed.setSelected(true);
         r_lenghtFixed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_lenghtFixedActionPerformed(evt);
@@ -296,6 +300,7 @@ public class Setup extends javax.swing.JFrame {
         jLabel25.setBounds(470, 110, 110, 20);
 
         radiogroup_queue.add(r_queueFifo);
+        r_queueFifo.setSelected(true);
         r_queueFifo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_queueFifoActionPerformed(evt);
