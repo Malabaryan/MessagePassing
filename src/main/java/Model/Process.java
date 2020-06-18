@@ -202,7 +202,7 @@ public class Process {
     public Process receiveMessage(String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
         if(bloqueo_recibir==false){
-            if(messagesprereceive.size()>1){
+            if(messagesprereceive.size()>=1){
                 if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
                     receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
                         return null;
@@ -228,7 +228,7 @@ public class Process {
             }
         }
         else{
-            if(messagesprereceive.size()>1){
+            if(messagesprereceive.size()>=1){
                 boolean destinatario = destinatariodemensaje(ID);
                 if(destinatario == true){
                     if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
