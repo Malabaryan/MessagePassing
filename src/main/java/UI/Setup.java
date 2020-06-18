@@ -213,7 +213,6 @@ public class Setup extends javax.swing.JFrame {
         r_addreDirectImplicit.setBounds(270, 380, 21, 21);
 
         radiogroup_addressing.add(r_addresDirectExplicit);
-        r_addresDirectExplicit.setSelected(true);
         r_addresDirectExplicit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_addresDirectExplicitActionPerformed(evt);
@@ -223,6 +222,7 @@ public class Setup extends javax.swing.JFrame {
         r_addresDirectExplicit.setBounds(270, 360, 21, 21);
 
         radiogroup_addressing.add(r_addressIndirectStatic);
+        r_addressIndirectStatic.setSelected(true);
         r_addressIndirectStatic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_addressIndirectStaticActionPerformed(evt);
