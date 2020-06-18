@@ -41,10 +41,12 @@ public class Process {
             case Sync_Send_NonBlocking:
                 bloqueo = false;
                 System.out.print("No Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " No Bloqueado.");
                 break;
             case Sync_Send_Blocking:
                 bloqueo = true;
                 System.out.print("Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " Bloqueado.");
                 break;
             default:
                 bloqueo = false;
@@ -62,14 +64,17 @@ public class Process {
             case Sync_Receive_NonBlocking:
                 bloqueo = false;
                 System.out.print("No Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " No Bloqueado.");
                 break;
             case Sync_Receive_Blocking:
                 bloqueo = true;
                 System.out.print("Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
                 break;
             case Sync_Receive_ProofOfArrival:
                 bloqueo = true;
                 System.out.print("Bloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " Bloqueado.");
                 break;
             default:
                 bloqueo = false;
@@ -97,15 +102,18 @@ public class Process {
             if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                 process_send.desbloquear_Test_Arrival();
                 System.out.print("Desbloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
             }
             else{
                 process_send.setBloqueo(false);
                 System.out.print("Desbloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
                 }
         }
         if(pbloqueo_Receive == true){
             setBloqueo(false);
             System.out.print("Desbloqueado");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
             messagesreceive.add(pMessage);
         }
         else{
@@ -137,16 +145,19 @@ public class Process {
                 if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
                     desbloquear_Test_Arrival();
                     System.out.print("Desbloqueado");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
                 }
                 else{
                     process.setBloqueo(false);
                     System.out.print("Desbloqueado");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
                 }
             }
             boolean pbloqueo_Receive = getBloqueo();
             if(pbloqueo_Receive == true){
                 process.setBloqueo(false);
                 System.out.print("Desbloqueado");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.");
                 messagesreceive.add(mensaje);
             }
             else{
@@ -156,6 +167,7 @@ public class Process {
         }
         else{
             System.out.print("No se pruede recibir el mensaje");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pudo recibir el mensaje");
         }
     }
     
@@ -170,6 +182,7 @@ public class Process {
             }
             else{
                 System.out.print("Este Proceso no pertenece a esta mailBox");
+                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox");
             }
         }
         else{
@@ -193,6 +206,7 @@ public class Process {
             }
             else{
                 System.out.print("Este Proceso no pertenece a esta mailBox");
+                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox");
             }
             return null;
         }
