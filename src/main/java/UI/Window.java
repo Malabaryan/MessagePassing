@@ -6,7 +6,12 @@
 package UI;
 
 import Controller.UiController;
-import javax.swing.JTextArea;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -38,24 +43,27 @@ public class Window extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txt_allprocesses = new javax.swing.JTextArea();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jScrollPane4 = new javax.swing.JScrollPane();
         txt_selectedprocesses = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
         btn_update = new javax.swing.JButton();
         combo_processesSelected = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         txt_command = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txt_allprocesses = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -81,78 +89,20 @@ public class Window extends javax.swing.JFrame {
 
         jRadioButton1.setText("jRadioButton1");
 
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 800));
-        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
-
-        jPanel3.setMaximumSize(new java.awt.Dimension(800, 800));
-        jPanel3.setMinimumSize(new java.awt.Dimension(800, 800));
-        jPanel3.setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Processes");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(10, 11, 92, 24);
-
-        jLabel6.setText("Process");
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(360, 50, 50, 16);
-
-        jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel9.setLayout(new java.awt.GridLayout(2, 0));
-
-        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
-
-        jPanel11.setLayout(null);
-
-        jLabel9.setText("All Processes");
-        jPanel11.add(jLabel9);
-        jLabel9.setBounds(10, 10, 79, 16);
-
-        txt_allprocesses.setColumns(20);
-        txt_allprocesses.setRows(5);
-        jScrollPane3.setViewportView(txt_allprocesses);
-
-        jPanel11.add(jScrollPane3);
-        jScrollPane3.setBounds(10, 25, 318, 180);
-
-        jPanel10.add(jPanel11);
-
-        jLabel10.setText("Selected Process");
 
         txt_selectedprocesses.setColumns(20);
         txt_selectedprocesses.setRows(5);
         jScrollPane4.setViewportView(txt_selectedprocesses);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel10.add(jPanel12);
-
-        jPanel9.add(jPanel10);
-
-        jPanel3.add(jPanel9);
-        jPanel9.setBounds(10, 70, 660, 408);
+        jLabel6.setText("Process");
 
         btn_update.setText("Update");
         btn_update.addActionListener(new java.awt.event.ActionListener() {
@@ -160,16 +110,28 @@ public class Window extends javax.swing.JFrame {
                 btn_updateActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_update);
-        btn_update.setBounds(610, 40, 70, 32);
-        jPanel3.add(combo_processesSelected);
-        combo_processesSelected.setBounds(420, 40, 190, 26);
+
+        combo_processesSelected.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                combo_processesSelectedMouseEntered(evt);
+            }
+        });
+        combo_processesSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_processesSelectedActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("Processes");
 
         jLabel5.setText("Execute");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, 40, 46, 16);
-        jPanel3.add(txt_command);
-        txt_command.setBounds(80, 40, 200, 24);
+
+        jLabel9.setText("All Processes");
+
+        txt_allprocesses.setColumns(20);
+        txt_allprocesses.setRows(5);
+        jScrollPane3.setViewportView(txt_allprocesses);
 
         jButton1.setText("Send");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -177,31 +139,135 @@ public class Window extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1);
-        jButton1.setBounds(280, 40, 70, 32);
 
-        getContentPane().add(jPanel3);
+        jLabel10.setText("Selected Process");
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Open batch file..");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu5.setText("About");
+
+        jMenuItem2.setText("Help");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu5);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_command, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(8, 8, 8)
+                                .addComponent(combo_processesSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_update))
+                            .addComponent(jScrollPane4))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_command, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(combo_processesSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_update)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.controller.sendCommand(this.txt_command.getText());
+        String str = this.txt_command.getText();
+        this.txt_allprocesses.setText("");
+        this.controller.sendCommand(str);
         this.controller.updateAll(txt_allprocesses);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
-        // TODO add your handling code here:
-        this.combo_processesSelected.removeAllItems();
-        for(String str : this.controller.getController().getProcessesStringArrayList()){
-            this.combo_processesSelected.addItem(str);
-        }
+
+    }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void combo_processesSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_processesSelectedActionPerformed
         String processSelected = this.combo_processesSelected.getItemAt(combo_processesSelected.getSelectedIndex());
-        
         this.controller.updateTextField(this.txt_selectedprocesses, this.controller.getLogOf(processSelected).toString());
         this.controller.updateAll(this.txt_allprocesses);
-    }//GEN-LAST:event_btn_updateActionPerformed
+    }//GEN-LAST:event_combo_processesSelectedActionPerformed
+
+    private void combo_processesSelectedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_processesSelectedMouseEntered
+        for(String str : this.controller.getController().getProcessesStringArrayList()){
+            if(((DefaultComboBoxModel) this.combo_processesSelected.getModel()).getIndexOf(str) == -1){
+                this.combo_processesSelected.addItem(str);
+            }
+        }
+    }//GEN-LAST:event_combo_processesSelectedMouseEntered
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Batch files *.btc", "btc"));
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            String selectedFile = fileChooser.getSelectedFile().getAbsolutePath();
+            try {
+                String contents = new String(Files.readAllBytes(Paths.get(selectedFile)));
+                this.controller.sendCommand(contents);
+            } catch (IOException ex) {}
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        HelpWindow help = new HelpWindow();
+        help.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -213,13 +279,16 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
