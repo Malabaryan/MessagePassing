@@ -173,42 +173,54 @@ public class Process {
     
     public void sendMessage(Message pMessage,String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Send();
-        if(direccionamiento == ParameterState.Addr_Direct_Send){
-            sendMessage_Direct(pMessage,ID);
-        }
-        else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
-            if(mailboxAssociated.findList_Send(this.ID)==true){
-                sendMessage_Indirect(pMessage); 
+        if(bloqueo == false){
+            if(direccionamiento == ParameterState.Addr_Direct_Send){
+                sendMessage_Direct(pMessage,ID);
+            }
+            else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
+                if(mailboxAssociated.findList_Send(this.ID)==true){
+                    sendMessage_Indirect(pMessage); 
+                }
+                else{
+                    System.out.print("Este Proceso no pertenece a esta mailBox");
+                    MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox");
+                }
             }
             else{
-                System.out.print("Este Proceso no pertenece a esta mailBox");
-                MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox");
+                System.out.print(ParametersController.getInstance().getAddressing_Send().toString());
             }
         }
         else{
-            System.out.print(ParametersController.getInstance().getAddressing_Send().toString());
+            System.out.print("Este Proceso esta bloqueado no puede enviar");
+            MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " esta bloqueado no puede enviar");
         }
     }
     
     public Process receiveMessage(String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
-        if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
-            receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
-            return null;
-        }
-        else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
-            receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
-            return MainController.getInstance().getProcess(ID);
-        }
-        else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
-            if(mailboxAssociated.findList_Receive(ID)==true){
-                receiveMessage_Indirect(); 
+        if(messagesprereceive.size()>1){
+            if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
+                receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
+                return null;
             }
-            else{
-                System.out.print("Este Proceso no pertenece a esta mailBox");
-                MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox");
+            else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
+                receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
+                return MainController.getInstance().getProcess(ID);
             }
-            return null;
+            else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
+                if(mailboxAssociated.findList_Receive(ID)==true){
+                    receiveMessage_Indirect(); 
+                }
+                else{
+                    System.out.print("Este Proceso no pertenece a esta mailBox");
+                    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox");
+                }
+                return null;
+            }
+        }
+        else if(messagesprereceive.size()==0 & bloqueo == true){
+            System.out.print("Este Proceso no puede recibir Mensajes esta Bloqueado");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no puede recibir Mensajes esta Bloqueado");
         }
         return null;
     }
