@@ -44,7 +44,7 @@ public class Mailbox {
     
     public boolean findList_Receive(String ID){
         for(int largo=0; largo < receiveprocesses.size();largo++){
-            if(receiveprocesses.get(largo).getID()==ID){
+            if(receiveprocesses.get(largo).getID()==ID && receiveprocesses.get(largo).bloqueo==false){
                 return true;
             }
         }
