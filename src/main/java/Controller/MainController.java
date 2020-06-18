@@ -96,7 +96,7 @@ public class MainController {
                 Message mensaje = new Message(parameters[0], parameters[1], parameters[2]);
                 Process process = getProcess(parameters[0]);
                 process.sendMessage(mensaje,parameters[0]);
-            } else if (subString[0].equals("recieve")){
+            } else if (subString[0].equals("receive")){
                 //RECIEVE COMMAND
                 Process process = getProcess(parameters[0]);
                 process.receiveMessage(parameters[1]);

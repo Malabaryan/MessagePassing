@@ -135,8 +135,8 @@ public class Process {
         Syncronizacion_Send();
         messagessend.add(pMessage);
         Process process = MainController.getInstance().getProcess(ID);
-        process.Syncronizacion_Receive();
         process.messagesprereceive.add(pMessage);
+        process.Syncronizacion_Receive();
     }
     
     public void sendMessage_Indirect(Message pMessage){

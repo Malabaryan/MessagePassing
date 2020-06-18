@@ -90,7 +90,10 @@ public class UiController {
 
     public void startSimulation(int formatSize, int noProcesses, int spin_maxQueueLenght) {
         for(int i = 0; i < noProcesses;i++){
-            this.controller.AddProcess(new Process(Integer.toString(i),this.controller.getMailbox()));
+            Process proceso = new Process(Integer.toString(i),this.controller.getMailbox());
+            this.controller.AddProcess(proceso);
+            this.controller.getMailbox().addListReceive(proceso);
+            this.controller.getMailbox().addListSend(proceso);
         }
         ParametersController.setQueueSize(spin_maxQueueLenght);
         ParametersController.setMessageLength(formatSize);
