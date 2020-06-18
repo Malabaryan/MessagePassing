@@ -80,7 +80,11 @@ public class UiController {
     }
 
     public void updateAll(JTextArea txt_allprocesses, JTextArea txt_process1, JTextArea txt_process2) {
-        txt_allprocesses.setText(logger.getLogger().toString());
+        String fullString = "";
+        for(Log log: logger.getLogger()){
+            fullString = fullString + log.getMsg().getMessageContent() + " - " + log.getMsg().getSourceID() + " to " + log.getMsg().getDestinationID() + "\n";
+        }
+        txt_allprocesses.setText(fullString);
         
     }
 
@@ -90,6 +94,9 @@ public class UiController {
         }
         ParametersController.setQueueSize(spin_maxQueueLenght);
         ParametersController.setMessageLength(formatSize);
+        System.out.println(this.controller.getProcesses().size() + " es la cantidad de procesos");;
+        for(String s:this.controller.getProcessesString())
+            System.out.println(s);
      }
     
 }
