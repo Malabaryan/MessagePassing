@@ -62,7 +62,7 @@ public class Window extends javax.swing.JFrame {
         btn_next = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
         btn_update = new javax.swing.JButton();
-        combo_processesSelected = new javax.swing.JComboBox<>(this.controller.getController().getProcessesString());
+        combo_processesSelected = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         txt_command = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -92,6 +92,7 @@ public class Window extends javax.swing.JFrame {
         jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel3.setMaximumSize(new java.awt.Dimension(800, 800));
@@ -247,8 +248,6 @@ public class Window extends javax.swing.JFrame {
         });
         jPanel3.add(btn_update);
         btn_update.setBounds(610, 40, 67, 23);
-
-        combo_processesSelected.setModel(new javax.swing.DefaultComboBoxModel<>(this.controller.getController().getProcessesString()));
         jPanel3.add(combo_processesSelected);
         combo_processesSelected.setBounds(418, 40, 190, 22);
 

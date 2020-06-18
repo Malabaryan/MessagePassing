@@ -266,6 +266,7 @@ public class Setup extends javax.swing.JFrame {
         jLabel23.setBounds(150, 570, 70, 20);
 
         radiogroup_lenght.add(r_lenghtVariable);
+        r_lenghtVariable.setSelected(true);
         r_lenghtVariable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_lenghtVariableActionPerformed(evt);
@@ -275,7 +276,6 @@ public class Setup extends javax.swing.JFrame {
         r_lenghtVariable.setBounds(220, 590, 21, 21);
 
         radiogroup_lenght.add(r_lenghtFixed);
-        r_lenghtFixed.setSelected(true);
         r_lenghtFixed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_lenghtFixedActionPerformed(evt);
@@ -336,6 +336,8 @@ public class Setup extends javax.swing.JFrame {
         jLabel26.setText("Syncronization Send");
         getContentPane().add(jLabel26);
         jLabel26.setBounds(80, 70, 180, 20);
+
+        spin_noProcesses.setValue(8);
         getContentPane().add(spin_noProcesses);
         spin_noProcesses.setBounds(580, 160, 80, 20);
 
