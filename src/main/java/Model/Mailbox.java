@@ -44,7 +44,7 @@ public class Mailbox {
     
     public boolean findList_Receive(String ID){
         for(int largo=0; largo < receiveprocesses.size();largo++){
-            if(receiveprocesses.get(largo).getID()==ID && receiveprocesses.get(largo).bloqueo==false){
+            if(receiveprocesses.get(largo).getID()==ID && receiveprocesses.get(largo).bloqueo_recibir==false){
                 return true;
             }
         }
@@ -53,7 +53,7 @@ public class Mailbox {
     
     public Process select_Received(){
         for(int largo=0; largo < receiveprocesses.size();largo++){
-            if(receiveprocesses.get(largo).getBloqueo()==false){
+            if(receiveprocesses.get(largo).getBloqueo_recibir()==false){
                 return receiveprocesses.get(largo);
             }
         }
