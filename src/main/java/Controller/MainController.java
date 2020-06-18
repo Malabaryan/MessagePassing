@@ -78,6 +78,15 @@ public class MainController {
         }
         return null;
     }
+    
+    public void setProcess(Process proceso){
+        for(int i = 0; i<processes.size();i++){
+            if(processes.get(i).equals(proceso.getID())){
+                processes.remove(i);
+            }
+        }
+        processes.add(proceso);
+    }
 
 
     public void executeCommand(String text) {

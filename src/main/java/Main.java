@@ -24,8 +24,8 @@ public class Main {
         ParametersController parametros = ParametersController.getInstance();
         ParameterState estado_Send = Controller.ParameterState.Sync_Send_Blocking;
         ParameterState estado_Receive = Controller.ParameterState.Sync_Receive_NonBlocking;
-        ParameterState adressingReceive = Controller.ParameterState.Addr_Indirect_Static;
-        ParameterState adressingSend = Controller.ParameterState.Addr_Indirect_Static;
+        ParameterState adressingReceive = Controller.ParameterState.Addr_Direct_Receive_Implicit;
+        ParameterState adressingSend = Controller.ParameterState.Addr_Direct_Send;
         
         parametros.setSyncronization_Send(estado_Send);
         parametros.setSyncronization_Receive(estado_Receive);
@@ -47,10 +47,11 @@ public class Main {
         System.out.print(ParametersController.getSyncronization_Send().toString());
         Message mensaje = new Message();
         nuevo1.sendMessage(mensaje, "2");
-        for(int i = 0; i<=50; i++){
+        /*for(int i = 0; i<=50; i++){
             nuevo3.sendMessage(mensaje, "2");
             System.out.print(i+"\n");
-        }
+        }*/
+        nuevo2.receiveMessage("1");
 
     }
     
