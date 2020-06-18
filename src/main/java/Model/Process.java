@@ -161,7 +161,7 @@ public class Process {
                 MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " fue desbloqueado.",mensaje);
             }
         }
-        boolean pbloqueo_Receive = getBloqueo_enviar();
+        boolean pbloqueo_Receive = getBloqueo_recibir();
         if(pbloqueo_Receive == true){
             setBloqueo_enviar(false);
             System.out.print("Desbloqueado");
@@ -203,14 +203,14 @@ public class Process {
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
         if(bloqueo_recibir==false){
             if(messagesprereceive.size()>1){
-                    if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
+                if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
                     receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
                         return null;
                 }
                 else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
                     receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
                     return MainController.getInstance().getProcess(ID);
-                    }
+                }
                 else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
                     if(mailboxAssociated.findList_Receive(ID)==true){
                         receiveMessage_Indirect(); 
