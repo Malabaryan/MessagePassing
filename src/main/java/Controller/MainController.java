@@ -93,9 +93,8 @@ public class MainController {
                 process.sendMessage(mensaje,Destination);
             } else if (subString[0].equals("recieve")){
                 //RECIEVE COMMAND
-                Message mensaje = new Message(Destination, Source, parameters[0]);
                 Process process = getProcess(parameters[0]);
-                process.receiveMessage(mensaje,Source);
+                process.receiveMessage(Source);
             } else {
                 //INVALID COMMAND
             }

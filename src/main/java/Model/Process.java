@@ -7,6 +7,8 @@ package Model;
 import Controller.ParameterState;
 import Controller.ParametersController;
 import Controller.MainController;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
@@ -16,12 +18,18 @@ public class Process {
     
     private Message currentMessage;
     private Mailbox mailboxAssociated;
+    public  Queue<Message> messagessend;
+    public  Queue<Message> messagesprereceive;
+    public  Queue<Message> messagesreceive;
     public  boolean bloqueo;
     private String ID;
 
     public Process(String pid,Mailbox pMailbox) {
         ID = pid;
         mailboxAssociated = pMailbox;
+        messagessend = new LinkedList<Message>();
+        messagesprereceive = new LinkedList<Message>();
+        messagesreceive = new LinkedList<Message>();
     }
     
     public void Syncronizacion_Send(){
@@ -94,29 +102,36 @@ public class Process {
                 process_send.setBloqueo(false);
                 System.out.print("Desbloqueado");
                 }
-            }
+        }
         if(pbloqueo_Receive == true){
             setBloqueo(false);
             System.out.print("Desbloqueado");
+            messagesreceive.add(pMessage);
+        }
+        else{
+            messagesreceive.add(pMessage);
         }
     }
     
     public void sendMessage_Direct(Message pMessage,String ID){
         Syncronizacion_Send();
+        messagessend.add(pMessage);
         Process process = MainController.getInstance().getProcess(ID);
         process.Syncronizacion_Receive();
+        process.messagesprereceive.add(pMessage);
     }
     
     public void sendMessage_Indirect(Message pMessage){
         Syncronizacion_Send();
+        messagessend.add(pMessage);
         mailboxAssociated.addMessage(pMessage);
     }
     
-    public void receiveMessage_Indirect(Message pMessage){
-        currentMessage = mailboxAssociated.messages.getNextMessage();
+    public void receiveMessage_Indirect(){
+        Message mensaje = mailboxAssociated.messages.getNextMessage();
         Process process = mailboxAssociated.select_Received();
         if(process != null){
-            Process process_send = MainController.getInstance().getProcess(currentMessage.getSourceID());
+            Process process_send = MainController.getInstance().getProcess(mensaje.getSourceID());
             boolean pbloqueo_Send = process_send.getBloqueo();
             if(pbloqueo_Send == true){
                 if(ParametersController.getInstance().getSyncronization_Receive()==ParameterState.Sync_Receive_ProofOfArrival){
@@ -132,8 +147,12 @@ public class Process {
             if(pbloqueo_Receive == true){
                 process.setBloqueo(false);
                 System.out.print("Desbloqueado");
+                messagesreceive.add(mensaje);
             }
-            pMessage.setDestinationID(process.ID);
+            else{
+                messagesreceive.add(mensaje);
+            }
+            mensaje.setDestinationID(process.ID);
         }
         else{
             System.out.print("No se pruede recibir el mensaje");
@@ -158,19 +177,19 @@ public class Process {
         }
     }
     
-    public Process receiveMessage(Message pMessage,String ID){
+    public Process receiveMessage(String ID){
         ParameterState direccionamiento = ParametersController.getInstance().getAddressing_Receive();
         if(direccionamiento == ParameterState.Addr_Direct_Receive_Implicit){
-            receiveMessage_DirectImplicit(pMessage,ID);
+            receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
             return null;
         }
         else if(direccionamiento == ParameterState.Addr_Direct_Receive_Explicit){
-            receiveMessage_DirectImplicit(pMessage,ID);
+            receiveMessage_DirectImplicit(messagesprereceive.poll(),ID);
             return MainController.getInstance().getProcess(ID);
         }
         else if(direccionamiento == ParameterState.Addr_Indirect_Static | direccionamiento == ParameterState.Addr_Indirect_Dynamic){
             if(mailboxAssociated.findList_Receive(ID)==true){
-                receiveMessage_Indirect(pMessage); 
+                receiveMessage_Indirect(); 
             }
             else{
                 System.out.print("Este Proceso no pertenece a esta mailBox");
