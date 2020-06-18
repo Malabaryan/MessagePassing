@@ -222,11 +222,23 @@ public class Process {
             System.out.print("Este Proceso no puede recibir Mensajes esta Bloqueado");
             MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no puede recibir Mensajes esta Bloqueado");
         }
+        else if(destinatariodemensaje(ID)==false & bloqueo == true){
+            System.out.print("Este Proceso no puede recibir Mensajes esta Bloqueado");
+            MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no puede recibir Mensajes esta Bloqueado");
+        }
         return null;
     }
     
     public void desbloquear_Test_Arrival(){
         setBloqueo(false);
+    }
+    
+    public boolean destinatariodemensaje(String ID){
+        Message message = messagesprereceive.peek();
+        if(message.getSourceID()==ID){
+            return true;
+        }
+        return false;
     }
     
 }
