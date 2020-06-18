@@ -23,7 +23,7 @@ public class MessageQueue {
         messages = new LinkedList<Message>();
     }
     
-    Message getMyNextMessage(String destinationID){
+    public Message getMyNextMessage(String destinationID){
         Message myMessage = null;
         
         for(Message message: messages){
@@ -47,7 +47,7 @@ public class MessageQueue {
         return myMessage;
     }
     
-    Message getNextMessage(){
+    public Message getNextMessage(){
         Message myMessage = null;
         
         for(Message message: messages){
