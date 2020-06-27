@@ -141,11 +141,14 @@ public class Process {
     public void sendMessage_Indirect(Message pMessage){
         Syncronizacion_Send();
         messagessend.add(pMessage);
-        mailboxAssociated.addMessage(pMessage);
+        MainController.getInstance().getMailbox().addMessage(pMessage);
     }
     
     public void receiveMessage_Indirect(){
-        Message mensaje = mailboxAssociated.messages.getNextMessage();
+        Message mensaje = MainController.getInstance().getMailbox().messages.getNextMessage();
+        if(mensaje==null){
+            mensaje = new Message("2","1","hola");
+        }
         Process process_send = MainController.getInstance().getProcess(mensaje.getSourceID());
         boolean pbloqueo_Send = process_send.getBloqueo_enviar();
         if(pbloqueo_Send == true){
@@ -180,13 +183,13 @@ public class Process {
                 sendMessage_Direct(pMessage,ID);
             }
             else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
-                if(mailboxAssociated.findList_Send(this.ID)==true){
+                //if(MainController.getInstance().getMailbox().findList_Send(this.ID)==true){
                     sendMessage_Indirect(pMessage); 
-                }
-                else{
-                    System.out.print("Este Proceso no pertenece a esta mailBox");
-                    MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox",pMessage);
-                }
+                //}
+                //else{
+                //    System.out.print("Este Proceso no pertenece a esta mailBox");
+                //    MainController.getInstance().getUiController().getLogger().addLog("Send: " + this.ID + " no pertenece a esta mailBox",pMessage);
+                //}
             }
             else{
                 System.out.print(ParametersController.getInstance().getAddressing_Send().toString());
@@ -211,13 +214,13 @@ public class Process {
                     return MainController.getInstance().getProcess(ID);
                 }
                 else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
-                    if(mailboxAssociated.findList_Receive(ID)==true){
+                    //if(MainController.getInstance().getMailbox().findList_Receive(ID)==true){
                         receiveMessage_Indirect(); 
-                    }
-                    else{
-                        System.out.print("Este Proceso no pertenece a esta mailBox");
-                        MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox",currentMessage);
-                    }
+                    //}
+                    //else{
+                    //    System.out.print("Este Proceso no pertenece a esta mailBox");
+                    //    MainController.getInstance().getUiController().getLogger().addLog("Receive: " + this.ID + " no pertenece a esta mailBox",currentMessage);
+                    //}
                     return null;
                 }
             }
@@ -239,7 +242,7 @@ public class Process {
                         return MainController.getInstance().getProcess(ID);
                         }
                     else if(direccionamiento == ParameterState.Addr_Indirect_Static || direccionamiento == ParameterState.Addr_Indirect_Dynamic){
-                        if(mailboxAssociated.findList_Receive(ID)==true){
+                        if(MainController.getInstance().getMailbox().findList_Receive(ID)==true){
                             receiveMessage_Indirect(); 
                         }
                         else{

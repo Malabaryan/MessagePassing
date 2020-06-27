@@ -25,6 +25,7 @@ public class MessageQueue {
     
     public Message getMyNextMessage(String destinationID){
         Message myMessage = null;
+        System.out.print("Cantidad Cola "+ messages.size());
         
         for(Message message: messages){
             if (message.getDestinationID().equals(destinationID)){
@@ -50,6 +51,7 @@ public class MessageQueue {
     public Message getNextMessage(){
         Message myMessage = null;
         
+        System.out.print("Cantidad Cola "+ messages.size());
         for(Message message: messages){
             if(ParametersController.getQueueStrategy() == ParameterState.Queue_FIFO){
                 myMessage = message;

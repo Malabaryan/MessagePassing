@@ -43,6 +43,7 @@ public class Mailbox {
     }
     
     public boolean findList_Receive(String ID){
+        System.out.print(receiveprocesses.size());
         for(int largo=0; largo < receiveprocesses.size();largo++){
             if(receiveprocesses.get(largo).getID()==ID && receiveprocesses.get(largo).bloqueo_recibir==false){
                 return true;
